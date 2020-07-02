@@ -6,7 +6,7 @@ var orm = {
         return new Promise( (resolve, reject) => {
             connection.query(queryString, [cityId], (err, res) => {
                 if (err) throw err;
-                resolve(res);
+                resolve(res[0]);
             });
         });
     }
