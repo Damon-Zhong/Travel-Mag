@@ -1,6 +1,22 @@
+<<<<<<< HEAD
 const axios = require("axios");
 const PexelsAPI = require('pexels-api-wrapper');
 // import { createClient } from 'pexels';
+=======
+var connection = require("./connection.js");
+
+var orm = {
+    selectCityData: function(cityId){
+        var queryString = "SELECT * FROM cities WHERE id = ?";
+        return new Promise( (resolve, reject) => {
+            connection.query(queryString, [cityId], (err, res) => {
+                if (err) throw err;
+                resolve(res);
+            });
+        });
+    }
+}
+>>>>>>> develop
 
 let cityInfo = [
     { id: 0, city_name: "Toronto", description: "" },
@@ -16,6 +32,7 @@ let restaurantList = [
     { id: 3, res_name: "restaurant-4", addr: "address-4", cityName: "Etobicoke" }
 ]
 
+<<<<<<< HEAD
 function getCityList(){
     return cityInfo
 }
@@ -83,3 +100,10 @@ module.exports = {
 //     "next_page": "https://api.pexels.com/v1/curated/?page=2&per_page=1"
 //   }
   
+=======
+function getRestaurantList( cityname ){
+    return restaurantList.filter( item => item.cityName == cityname )
+}
+
+module.exports = orm;
+>>>>>>> develop
