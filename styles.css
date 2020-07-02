@@ -23,7 +23,11 @@ h1{
     
 }
 
+.aircraftIcon{
 
+    margin-left: 10px;
+    background: transparent!important;
+}
 
 
 /* booking flights */
