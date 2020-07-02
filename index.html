@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>  
-
-
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
 
-    
+    <!-- Nav bar begin -->
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(188, 228, 222);">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white;">
         <a class="navbar-brand" href="#">coMeDia</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,30 +25,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="#">Hotels<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Flights</a>
+              <a class="nav-link" href="flight.html">Flights<button class="fa fa-plane" type="button" id="button-addon2"></button></a>
+              
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Destinations 
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="city1.html">city1</a> 
-                <a class="dropdown-item" href="#">city2</a>
-                <a class="dropdown-item" href="#">city3</a>
+                <a class="dropdown-item" href="city1.html">City1</a>
+                <a class="dropdown-item" href="#">City2</a>
+                <a class="dropdown-item" href="#">City3</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li> 
-          
-            <li class="nav-item">
+            </li>
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Sign up</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
-              </li>
+              </li> -->
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?" aria-label="Search">
@@ -58,94 +57,50 @@
         </div>
       </nav>
 
- 
+      <!-- Nav bar end -->
+    
 
-
-<div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul> 
-
-   <div class="stage">
-    <div class="cell">
       
-      
-      <div class="searchbar">
-        
-        <!-- <input type="text" class="btn-extended" placeholder="search" /> -->
-        
-        <div class="btn-search"></div>
-        
-      
-      
-      
-      
-    </div><!-- .cell -->
-  </div><!-- .stage -->
-  
-  
-  
-  
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://www.telegraph.co.uk/content/dam/Travel/2017/june/Dubai-travel-Getty-xlarge.jpg" alt="Dubai" width="1100" height="500">
-    </div>
-    <div class="carousel-item">
-      <img src="https://c.na84.content.force.com/servlet/servlet.ImageServer?id=0151T000002dEwZ&oid=00D50000000JMrK&lastMod=1556133220000" alt="Greece" width="1100" height="500">
-    </div>
-    <div class="carousel-item">
-      <img src="https://assets.simpleviewcms.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/lasvegas/strip_b86ddbea-3add-4995-b449-ac85d700b027.jpg" alt="LA, Vegas" width="1100" height="500">
-    </div>
-  </div>
-  
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
+       <!-- The slideshow begin -->
 
-</body>
-</html>
-
-
-
-
-
-
-      <!-- <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://i.pinimg.com/originals/78/f7/7a/78f77ac01f0d2e381876a2f4266cb6a4.jpg" class="d-block w-100" alt="...">
+          <div class="photos carousel-item active">
+            <img src="./Assets/travel1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Where would you like to go" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="fa fa-search" type="button" id="button-addon2"></button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <img src="https://uicookies.com/wp-content/uploads/2019/03/free-travel-website-templates-1000x750.jpg" class="d-block w-100" alt="...">
+          <div class="photos carousel-item">
+            <img src="./Assets/travel2.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Where would you like to go" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="fa fa-search" type="button" id="button-addon2"></button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <img src="https://cdn.psdrepo.com/images/2x/travel-agency-landing-page-free-psd-h8.jpg" class="d-block w-100" alt="...">
+          <div class="photos carousel-item">
+            <img src="./Assets/travel3.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Where would you like to go" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="fa fa-search" type="button" id="button-addon2"></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -157,7 +112,57 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div> -->
+      </div>
+
+      <!-- The slideshow end-->
+
+    <br/>
+
+    <h1>Where we go</h1>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card bg-dark text-white">
+          <img src="./Assets/Asia1.jpg" class="card-img" alt="...">
+          <div class="tittleAlign card-img-overlay">
+            <a href="#" class="contries card-title">Asia</a>           
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card bg-dark text-white">
+          <img src="./Assets/australia1.webp" class="card-img" alt="...">
+          <div class="tittleAlign card-img-overlay">
+            <a href="#" class="contries card-title">Australia </a>           
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card bg-dark text-white">
+          <img src="./Assets/Europe1.jpg" class="card-img" alt="...">
+          <div class="tittleAlign card-img-overlay">
+            <a href="#" class="contries card-title">Europe</a>           
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card bg-dark text-white">
+          <img src="./Assets/latin-america2.jpg" class="card-img" alt="...">
+          <div class="tittleAlign card-img-overlay">
+            <a href="#" class="contries card-title">Latin America</a>           
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
     
 </body>
 </html>

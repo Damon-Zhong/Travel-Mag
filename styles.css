@@ -1,0 +1,126 @@
+.photos{
+    height: 500px;
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+.tittleAlign{
+
+    font-size: 40px;
+    font-weight: bolder;
+    color: cornsilk;
+    opacity: 70%;
+    text-align: center;
+    
+}
+
+.contries{
+    color: cornsilk;
+    margin-top: 100px;
+    
+}
+
+
+
+
+/* booking flights */
+
+/* .flightbooking{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url(./Assets/travel1.jpg);
+    background-size: cover;
+   
+}
+
+.booking-form-box{
+    max-width: 400px;
+    border: 1px solid #ced4da;
+    margin: 10% auto 0;
+    border-radius: 2%;
+}
+
+.radio-btn{
+    margin: 0 20px;
+}
+
+.radio-btn .btn{
+    margin: 20px 10px 20px 0;
+    box-shadow: none;
+}
+
+.radio-btn .btn::after{
+    content: '';
+    height: 15px;
+    width: 15px;
+    top: -2px;
+    left: -1px;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    border: 3px solid #fff;
+    visibility: visible;
+    border-radius: 50%;
+}
+
+.radio-btn .btn:checked::after{
+    content: '';
+    background-color: #000;
+    transition: 1s;
+}
+
+.radio-btn span{
+    color: antiquewhite;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.booking-form{
+    padding: 0 20px 20px ;
+}
+
+.booking-form label{
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fff;
+}
+
+input::placeholder{
+    color: #fff !important;
+}
+
+.input-grp{
+    width: 150px;
+    display: inline-block;
+}
+
+.form-control{
+    font-size: 12px!important;
+    border-radius: 2%!important;
+    color: #fff!important;
+    background: transparent!important;
+    box-shadow: none!important;
+
+}
+
+.custom-select{
+    color: #fff!important;
+    font-size: 12px!important;
+    border: 1px solid #ced4da!important;
+    box-shadow: none!important;
+    border-radius: 2%!important;
+    background: transparent!important;
+}
+
+.custom-select option{
+    color: teal;
+}
+
+
+.flight{
+    margin-left: 70px;
+    background: transparent!important;
+    
+} */
