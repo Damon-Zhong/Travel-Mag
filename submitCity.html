@@ -63,12 +63,14 @@
 
     <form>
         <div class="submit-form-group">
+        <div class="form-group"> 
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Enter City Name</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          </div>
+          
         <div class="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Example select</label>
+          <label for="exampleFormControlSelect1">Select Country</label>
           <select class="form-control" id="exampleFormControlSelect1">
             <option>Greece</option>
             <option>Cancún</option>
@@ -78,19 +80,19 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="exampleFormControlSelect2">Example multiple select</label>
+          <label for="exampleFormControlSelect2">Select Category</label>
           <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option> Hotels</option>
+            <option>Resterants</option>
+            <option>Bars</option>
+            <option>Nightlife</option>
+            <option>Family fun</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+        </div> 
+        <div id="button-div">
+          <button type="submit" id="submit">Submit</button>
+      </div>
+        
     </div>
       </form>
 </body>
