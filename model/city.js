@@ -24,7 +24,6 @@ class City {
         // return a medium size pic
         return result.photos[0].src.medium
     }
-
 }
 
 module.exports = City

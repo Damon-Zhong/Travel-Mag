@@ -10,8 +10,10 @@ var orm = {
             });
         });
     },
+    insertCityData: function (){
 
-    
+        
+    }
 }
 
 let cityInfo = [

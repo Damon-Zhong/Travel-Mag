@@ -10,15 +10,15 @@ function router( app ){
 
     // })
     //[GET] city profile picture from Pexel API
-    app.get("/pic/:cityname/", function( req, res ){
+    app.get("/api/pic/:cityname/", async function( req, res ){
         const city_name = req.params.cityname
-        const result = CityModel.getCityPic( city_name )
-        console.log( result )
+        const result = await CityModel.getCityPic( city_name )
+        // console.log( result )
         res.send( result )
     })
 
     //[GET] search by city name or click on city
-    app.get("/:cityname", async function( req, res ){
+    app.get("/api/weather/:cityname", async function( req, res ){
         const city_name = req.params.cityname
         const weather = await CityModel.getWeather( city_name )
         console.log( weather )
@@ -26,7 +26,7 @@ function router( app ){
     })
  
     //[POST] submit city info
-    app.post("/addcity", function( req, res ){
+    app.post("/api/addcity", function( req, res ){
         console.log(`[POST] data received:${req.body}`)
         const userInput = req.body
         const city_name = userInput.cityName
@@ -38,7 +38,11 @@ function router( app ){
         res.send( newList )
         console.log(`new city list:${newList}`)
     })
-
+    app.get("/api/data/:id", async function(req, res){
+        const cityId = req.params.id;
+        const data = await CityModel.getCity(cityId);
+        res.send(data);
+    });
     // [GET] render city content from database
     app.get("/api/data", async function(req, res){
         const cityId = req.query.id;
