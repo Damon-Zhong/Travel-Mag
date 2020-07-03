@@ -133,8 +133,8 @@
   <br />
 
   <h1>Where we go</h1>
-  <div class="container" id="city_info">
-    <div class="row">
+  <div class="container">
+    <div class="row" id="city_info">
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">Greece</h5>
@@ -185,13 +185,33 @@
 </html>
 
 <script>
-  //Retrieve data from database
-  async function getCityInfo( city ){
-    console.log( `Calling...` )
-    const result = await fetch(`/${city}`).then( result=>result.json() )
-    console.log( result )
-  //innerHTML
-}
 
-getCityInfo( 'toronto' )
+  async function getCityInfo(cityId) {
+    console.log(`Calling...`)
+    //Retrieve city data from database
+    const result = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
+    console.log(`GET city by ID: api=/api/data?id=${cityId}`, result)
+    //Pick a city view picture from Pexel
+    const cityPicURL = await fetch(`/api/pic/${result.city_name}`).then(result => result.json())
+    console.log( cityPicURL )
+    //Clear display area
+    // document.querySelector("#city_info").innerHTML = ``
+    //render city info
+    // result.forEach(city => {
+      document.querySelector("#city_info").innerHTML += `
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title">${result.city_name}, ${result.city_country}</h5>
+          <img src='${cityPicURL}' class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="/cities/" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>`
+    // })
+  }
+  for( let i=1; i<=5; i++){
+    getCityInfo(i)
+  }
+  
 </script>
