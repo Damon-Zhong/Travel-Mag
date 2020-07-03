@@ -9,10 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head> 
 <body>
+<<<<<<< HEAD
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(188, 228, 222);">
         <a class="navbar-brand" href="#">coMeDia</a>
@@ -63,6 +65,77 @@
         <h1>City Name</h1>      
         <p> a bit about the city....</p>
       </div>
+=======
+    <!-- Nav bar begin -->
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white;">
+      <a class="navbar-brand" href="#">coMeDia</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Hotels<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="flight.html">Flights<button class="fa fa-plane aircraftIcon" type="button" id="button-addon2"></button></a>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Destinations 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="city1.html">City1</a>
+              <a class="dropdown-item" href="#">City2</a>
+              <a class="dropdown-item" href="#">City3</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="submitCity.html">Submit City</a>
+          </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li> --> 
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Nav bar end -->
+
+   <!-- tabs for cat. --> 
+   <nav>
+    <ul class="nav justify-content-center">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Summery</a>
+      <a class="nav-item nav-link" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="false">Places to Stay</a>
+
+      <a class="nav-item nav-link" id="nav-food-tab" data-toggle="tab" href="#nav-food" role="tab" aria-controls="nav-food" aria-selected="false">Food</a>
+      <a class="nav-item nav-link" id="nav-explore-tab" data-toggle="tab" href="#nav-explore" role="tab" aria-controls="nav-explore" aria-selected="false">Explore</a>
+      <a class="nav-item nav-link" id="nav-nightlife-tab" data-toggle="tab" href="#nav-nightlife" role="tab" aria-controls="nav-nightlife" aria-selected="false">Nightlife</a>
+
+
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent"> 
+      <!-- Summery -->
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <h3>Greece</h3>
+        <p>Breif Summery of city, put some pictures add some facts and tips  </p>
+    </div>
+    <!-- Hotels -->
+    <div class="tab-pane fade" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
+        <h3>Hotels</h3>
+        <p>Top 5 places to stay at... to be displayed with cards</p>
+>>>>>>> 61de821261fe9e4f856a8aab3dbf06da17fe7559
     </div> 
     <!-- End of Header -->
     
