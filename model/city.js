@@ -28,6 +28,3 @@ class City {
 }
 
 module.exports = City
-// {
-//     City, getCityList, getRestaurantList, getWeather, getCityPic
-// }
