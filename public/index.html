@@ -17,6 +17,7 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
 
+  <script src="/search.js"></script>
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,6 +27,48 @@
 </head>
 
 <body>
+    <!-- Modal for choosing from multiple cities -->
+    <div
+    class="modal fade"
+    id="cityChoiceModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="cityChoiceModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">City Options</h5>
+          
+          <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>We've found multiple cities that match your query, please choose:</p>
+          <div id="modal-body" ass="list-group">
+              
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Nav bar begin -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white;">
     <a class="navbar-brand" href="#">coMeDia</a>
@@ -64,8 +107,8 @@
                 <a class="nav-link" href="#">Login</a>
               </li> -->
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
+      <form class="form-inline my-2 my-lg-0" onsubmit="searchCities(event)">
+        <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
           aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
