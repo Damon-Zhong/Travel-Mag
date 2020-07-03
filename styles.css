@@ -29,7 +29,36 @@ h1{
     background: transparent!important;
 }
 
+.submit-form-group{
+    max-width: 80%;
+    height: 444px;
+    border: 1px solid #ced4da;
+    margin: 10% auto 0;
+    border-radius: 1%;
+    margin-top: 50px;
+}
 
+
+/* --------- */
+
+ .backgroundWhole{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url(./Assets/travel2.jpg);
+    background-size: cover; 
+    color: #fff;
+}
+
+.form-control{
+    background: transparent!important;
+    color: #fff;
+} 
+
+input::placeholder{
+    color: #fff !important;
+}
+
+textarea{
+    color: #fff !important;
+}
 /* booking flights */
 
 /* .flightbooking{
