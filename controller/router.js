@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-const orm = require("../app/orm")
-// const express = require("express")
-=======
 const orm = require("../app/orm");
 const express = require("express");
 const City = require("../model/city");
 const { response } = require("express");
 const CityModel = new City();
->>>>>>> develop
 
 function router( app ){
     //[GET] landing page
@@ -17,15 +12,16 @@ function router( app ){
     //[GET] city profile picture from Pexel API
     app.get("/pic/:cityname/", function( req, res ){
         const city_name = req.params.cityname
-        const result = orm.getCityPic( city_name )
+        const result = CityModel.getCityPic( city_name )
+        console.log( result )
         res.send( result )
     })
 
     //[GET] search by city name or click on city
-    app.get("/:cityname", function( req, res ){
+    app.get("/:cityname", async function( req, res ){
         const city_name = req.params.cityname
-        const weather = orm.getWeather( city_name )
-        const restaurants = orm.getRestaurantList( city_name )
+        const weather = await CityModel.getWeather( city_name )
+        console.log( weather )
         res.send( weather )
     })
  

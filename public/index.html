@@ -16,7 +16,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-  
+
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -82,7 +82,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="photos carousel-item active">
-        <img src="./Assets/travel1.jpg" class="d-block w-100" alt="...">
+        <img src="../Assets/travel1.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Where would you like to go"
@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="photos carousel-item">
-        <img src="./Assets/travel2.jpg" class="d-block w-100" alt="...">
+        <img src="../Assets/travel2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Where would you like to go"
@@ -106,7 +106,7 @@
         </div>
       </div>
       <div class="photos carousel-item">
-        <img src="./Assets/travel3.jpg" class="d-block w-100" alt="...">
+        <img src="../Assets/travel3.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Where would you like to go"
@@ -133,25 +133,12 @@
   <br />
 
   <h1>Where we go</h1>
-  <script>
-    //Retrieve data from database
-    // const cityModel = require("./model/city")
-    //Contruct the html sections
-    async function getCityInfo( city_name ){
-      const result = await fetch(`/${city_name}`).then( result=>result.json() )
-      console.log( result )
-    //innerHTML
-  }
-
-  getCityInfo( 'Toronto' )
-  </script>
-
-  <div class="container" >
-    <div class="row" id="city_info">
+  <div class="container" id="city_info">
+    <div class="row">
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">Greece</h5>
-          <img src="./Assets/greece2.jpg" class="card-img-top" alt="...">
+          <img src="../Assets/greece2.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <a href="city1.html" class="btn btn-primary">Let's go</a>
           </div>
@@ -161,7 +148,7 @@
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">Cancún</h5>
-          <img src="./Assets/cancun2.jpg" class="card-img-top" alt="...">
+          <img src="../Assets/cancun2.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <a href="#" class="btn btn-primary">Let's go</a>
           </div>
@@ -171,7 +158,7 @@
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">Iceland</h5>
-          <img src="./Assets/Iceland1.jpg" class="card-img-top" alt="...">
+          <img src="../Assets/Iceland1.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <a href="#" class="btn btn-primary">Let's go</a>
           </div>
@@ -196,3 +183,15 @@
 </body>
 
 </html>
+
+<script>
+  //Retrieve data from database
+  async function getCityInfo( city ){
+    console.log( `Calling...` )
+    const result = await fetch(`/${city}`).then( result=>result.json() )
+    console.log( result )
+  //innerHTML
+}
+
+getCityInfo( 'toronto' )
+</script>
