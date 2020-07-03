@@ -1,22 +1,18 @@
-<<<<<<< HEAD
-const axios = require("axios");
-const PexelsAPI = require('pexels-api-wrapper');
-// import { createClient } from 'pexels';
-=======
 var connection = require("./connection.js");
 
 var orm = {
-    selectCityData: function(cityId){
+    selectCityData: function (cityId) {
         var queryString = "SELECT * FROM cities WHERE id = ?";
-        return new Promise( (resolve, reject) => {
+        return new Promise((resolve, reject) => {
             connection.query(queryString, [cityId], (err, res) => {
                 if (err) throw err;
                 resolve(res[0]);
             });
         });
-    }
+    },
+
+    
 }
->>>>>>> develop
 
 let cityInfo = [
     { id: 0, city_name: "Toronto", description: "" },
@@ -31,42 +27,6 @@ let restaurantList = [
     { id: 2, res_name: "restaurant-3", addr: "address-3", cityName: "Hamilton" },
     { id: 3, res_name: "restaurant-4", addr: "address-4", cityName: "Etobicoke" }
 ]
-
-<<<<<<< HEAD
-function getCityList(){
-    return cityInfo
-}
-function getRestaurantList(cityname) {
-    return restaurantList.filter(item => item.cityName == cityname)
-}
-
-async function getWeather(cityName) {
-    //Complete api url with user input city name
-    const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=c6f6f0d5ef4d5464dfe745e65c596599`;
-    //Retrieve data from api
-    const result = await axios.get(api)
-    return result.data
-}
-
-async function getCityPic(cityName) {
-    const pexelsAPI = new PexelsAPI("563492ad6f917000010000015e76a9ba75e443c6a2942de7f354aac8")
-    const query = cityName
-    const result = await pexelsAPI.search( query, 10, 1)
-    console.log( result.photos[0].src.medium )
-    // return a medium size pic
-    return result.photos[0].src.medium
-}
-
-function addCity( cityName, description, res_name, res_addr){
-    cityInfo.push( { id:cityInfo.length, city_name: cityName, description  } )
-    restaurantList.push( {id:restaurantList.length, res_name:res_name, addr:res_addr, cityName:cityName } )
-}
-module.exports = {
-    getCityList, getRestaurantList, getWeather, getCityPic, addCity
-}
-
-
-
 
 //Sample API reuslts
 //OpenWeather:
@@ -99,11 +59,5 @@ module.exports = {
 //     ],
 //     "next_page": "https://api.pexels.com/v1/curated/?page=2&per_page=1"
 //   }
-  
-=======
-function getRestaurantList( cityname ){
-    return restaurantList.filter( item => item.cityName == cityname )
-}
 
 module.exports = orm;
->>>>>>> develop
