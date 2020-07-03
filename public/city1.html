@@ -171,15 +171,15 @@
     <script>
 
       async function displayWeather(){
-        const weatherInfo= await fetch('/api/weather/toronto').then((result)=>result.json())
+        const weatherInfo= await fetch('/api/weather/Greece').then((result)=>result.json())
         console.log(weatherInfo)
         document.querySelector('#weatherClass').innerHTML=`
-        <h5 class="card-title">City
-                <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/sunny-day-1642979-1394067.png" width="50" height="50" alt="">
+        <h5 class="card-title">${weatherInfo.name}
+                <img src="http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png" width="50" height="50" alt="">
               </h5>              
-              <p class="card-text">Temperature:</p>
-              <p class="card-text">Humidity: </p>
-              <p class="card-text">Wind Speed</p>  
+              <p class="card-text">Temperature: ${weatherInfo.main.temp}</p>
+              <p class="card-text">Humidity:${weatherInfo.main.humidity} </p>
+              <p class="card-text">Wind Speed: ${weatherInfo.wind.speed}</p>  
         `
       }
 
