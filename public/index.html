@@ -140,7 +140,7 @@
           <h5 class="card-title">Greece</h5>
           <img src="../Assets/greece2.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <a href="city1.html" class="btn btn-primary">Let's go</a>
+            <a href="/city1.html" class="btn btn-primary">Let's go</a>
           </div>
         </div>
       </div>
@@ -190,10 +190,10 @@
     console.log(`Calling...`)
     //Retrieve city data from database
     const result = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
-    console.log(`GET city by ID: api=/api/data?id=${cityId}`, result)
+    // console.log(`GET city by ID: api=/api/data?id=${cityId}`, result)
     //Pick a city view picture from Pexel
-    const cityPicURL = await fetch(`/api/pic/${result.city_name}`).then(result => result.json())
-    console.log( cityPicURL )
+    const cityPicURL = await fetch(`/api/pic/${result.city_name}`)
+    // console.log( `Fetching from: /api/pic/${result.city_name}, result:`, cityPicURL )
     //Clear display area
     // document.querySelector("#city_info").innerHTML = ``
     //render city info
@@ -202,9 +202,9 @@
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">${result.city_name}, ${result.city_country}</h5>
-          <img src='${cityPicURL}' class="card-img-top" alt="...">
+          <img src='https://images.pexels.com/photos/1471294/pexels-photo-1471294.jpeg?auto=compress&cs=tinysrgb&h=350' class="card-img-top" alt="...">
           <div class="card-body">
-            <a href="/cities/" class="btn btn-primary">Let's go</a>
+            <a href="/cities.html#${cityId}" class="btn btn-primary">Let's go</a>
           </div>
         </div>
       </div>`

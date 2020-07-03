@@ -20,7 +20,7 @@ class City {
     getCityPic = async (cityName) => {
         const query = cityName
         const result = await API.search(query, 10, 1)
-        console.log(result.photos[0].src.medium)
+        // console.log(result.photos[0].src.medium)
         // return a medium size pic
         return result.photos[0].src.medium
     }
