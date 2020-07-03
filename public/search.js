@@ -11,7 +11,8 @@ async function searchCities(event){
             }
             response.json().then(function(data) {
                 if(data.length == 1){
-                    console.log("Direct to city page");
+                    var city = data[0];
+                    window.location.replace(`/cities.html#${city.id}`);
                 } else if(data.length > 1) {
                     $('#cityChoiceModal').modal();
                     data.forEach(city => {
