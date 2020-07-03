@@ -17,6 +17,7 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
   
+  <script src="js/search.js"></script>
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -64,8 +65,8 @@
                 <a class="nav-link" href="#">Login</a>
               </li> -->
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
+      <form class="form-inline my-2 my-lg-0" onsubmit="searchCities(event)">
+        <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
           aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>

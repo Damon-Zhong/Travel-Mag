@@ -24,6 +24,11 @@ class City {
         // return a medium size pic
         return result.photos[0].src.medium
     }
+
+    searchCities = async (cityQuery) => {
+        const query = await orm.searchForCity(cityQuery);
+        return query;
+    }
 }
 
 module.exports = City

@@ -10,9 +10,21 @@ var orm = {
             });
         });
     },
+
     insertCityData: function (){
 
         
+    },
+
+    searchForCity: function (cityQuery) {
+        var userInput = cityQuery.toLowerCase();
+        var queryString = `SELECT * FROM cities WHERE LOWER(city_name) LIKE "%${userInput}%"`;
+        return new Promise((resolve, reject) => {
+            connection.query(queryString, (err, res) => {
+                if (err) throw err;
+                resolve(res);
+            });
+        });
     }
 }
 

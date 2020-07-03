@@ -17,6 +17,13 @@ function router( app ){
         res.send( result )
     })
 
+    // GET search feature for cities
+    app.get("/api/search", async function( req, res ){
+        const city_query = req.query.q
+        const result = await CityModel.searchCities( city_query )
+        res.send( result )
+    })
+
     //[GET] search by city name or click on city
     app.get("/api/weather/:cityname", async function( req, res ){
         const city_name = req.params.cityname
