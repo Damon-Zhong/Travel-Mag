@@ -48,16 +48,17 @@ h1{
 }
 
 .form-control{
-    background: transparent!important;
+    background: color black!important;
     color: #fff;
 } 
 
 input::placeholder{
-    color: #fff !important;
+    color: black !important; 
+    text: color black;
 }
 
 textarea{
-    color: #fff !important;
+    color: black !important;
 }
 /* booking flights */
 
