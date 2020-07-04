@@ -1,18 +1,18 @@
 var mysql = require("mysql");
 
-// To make connection.
+// To make connection.(for submit city)
 
-// if (process.env.JAWSDB_URL) {
-//     connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
-//     connection = mysql.createConnection({
-//         host: 'localhost',
-//         user: 'root',
-//         password: '',
-//         database: 'destinations'
-//     });
-// }
-
+var connection;
+if(process.env.JAWSDB_URL){
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection({
+        host     : process.env.DB_HOST,
+        user     : process.env.DB_USER,
+        password : process.env.DB_PASS,
+        database : 'destinations'
+      });
+};
 connection.connect(function (err) {
     if (err) {
         console.error("error connecting: " + err.stack);
@@ -22,5 +22,4 @@ connection.connect(function (err) {
 });
 
 
-// Export connection for our ORM to use.
 module.exports = connection;
