@@ -4,7 +4,7 @@
   "description": "Application providing city info",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemone server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/Damon-Zhong/Project_2#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
+    "express-handlebars": "^4.0.5",
     "mysql": "^2.18.1"
   }
 }
