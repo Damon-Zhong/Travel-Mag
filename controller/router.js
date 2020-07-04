@@ -18,7 +18,7 @@ function router( app ){
         const city_name = req.params.cityname
         // console.log(`city name:`, city_name)
         const result = await CityModel.getCityPic( city_name )
-        // console.log( result )
+        // console.log( `route result:`, result )
         res.send( result )
     })
 
