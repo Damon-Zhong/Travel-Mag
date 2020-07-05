@@ -153,6 +153,7 @@
           <div id="flightIDInfor" class="card-body text-center">
             <h5 class="card-title">Flight Quotes</h5>
             <input id="homecity" type="text" class="card-text" placeholder="originplace">
+            <input id="destinationCity" type="text" class="card-text" placeholder="destination">
             <div class="input-grp">
               <label>Departing</label>
               <input id="departdate" type="date" class="form-control select-date">
@@ -162,6 +163,7 @@
               <label>Returning</label>
               <input id="returndate" type="date" class="form-control select-date">
             </div>
+            <br/>
             <button class="btn btn-primary" onclick="checkFlight(event)">Check it out</button>
 
           </div>
@@ -241,19 +243,20 @@
 
             //retrieve user input
             const homecity = document.querySelector("#homecity").value
+            const destinationCity =document.querySelector('#destinationCity').value
             const departDate = document.querySelector("#departdate").value
             const returnDate = document.querySelector("#returndate").value
-            console.log(`homecity:${homecity}, depart:${departDate}, return:${returnDate}` )
+            console.log(`homecity:${homecity}, destinationCity: ${destinationCity} depart:${departDate}, return:${returnDate}` )
             //fetch data from API 
-            const flightPrice = await displayFlight( homecity, departDate, returnDate )
+            const flightPrice = await displayFlight( homecity, destinationCity, departDate, returnDate )
             //hide the input section and show price section
             document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">
               <h5>Lowest Flight Price</h5>
-              <p>Travelling from ${homecity} to Berlin</p>
+              <p>Travelling from ${homecity} to ${destinationCity}</p>
               <p>Departure at: ${departDate}</p>
               <p>Returen at: ${returnDate}</p>
-              <p>Lowest Price: ${flightPrice} </p>
+              <p>Lowest Price: $ ${flightPrice} </p>
             </div>`
             
           }
@@ -275,11 +278,11 @@
 
 
             //  Flight API
-            async function displayFlight( homecity, departdate, returndate ) {
+            async function displayFlight( homecity, destinationcity, departdate, returndate ) {
               //proxy config
               var proxyUrl = window.location.href.indexOf('herokuapp') >-1 ? '' : 'https://cors-anywhere.herokuapp.com/'
               //fetch data from Skyscanner API
-              const flightInfor = await fetch(proxyUrl+`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/${departdate}?inboundpartialdate=${returndate}`, {
+              const flightInfor = await fetch(proxyUrl+`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${homecity}-sky/${destinationcity}-sky/${departdate}?inboundpartialdate=${returndate}`, {
                               "method": "GET",
                 "headers": {
                               "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
