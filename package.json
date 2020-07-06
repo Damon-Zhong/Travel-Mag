@@ -4,8 +4,9 @@
   "description": "Application providing city info",
   "main": "script.js",
   "scripts": {
-    "test": "nodemone server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+  },
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,15 @@
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "express-handlebars": "^4.0.4",
     "fs": "0.0.1-security",
     "mysql": "^2.18.1",
     "pexels-api-wrapper": "^1.1.2"
+=======
+    "express-handlebars": "^4.0.5",
+    "express-validator": "^6.6.0",
+    "mysql": "^2.18.1"
+>>>>>>> 293791be096d35d62d5c1bc7c20be7fec077eda5
   }
 }

@@ -49,7 +49,7 @@ h1{
 
 .form-control{
     background: color black!important;
-    color: #fff;
+    color: rgb(184, 35, 35);
 } 
 
 input::placeholder{
@@ -59,7 +59,16 @@ input::placeholder{
 
 textarea{
     color: black !important;
+} 
+
+.formcontainer {  
+    margin-top: 30px;
+    display: flex; 
+    justify-content: center ; 
+    
 }
+
+
 /* booking flights */
 
 /* .flightbooking{
