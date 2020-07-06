@@ -20,7 +20,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="background-color:white;">
-      <a class="navbar-brand logo" href="#">Travel<span class="blue">Mag</span></a>
+      <a class="navbar-brand logo" href="/">Travel<span class="blue">Mag</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -176,7 +176,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Best Hotels</h5>
           <p class="card-text">${data.hotels_headline} </p>
-          <a href=${data.hotels_link} class="btn btn-primary btn-block">Check it out!</a>
+          <a href=${data.hotels_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
         </div>
       `
     //update restaurant info
@@ -185,7 +185,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Top Places to Eat</h5>
           <p class="card-text">${data.eats_headline} </p>
-          <a href=${data.eats_link} class="btn btn-primary btn-block">Check it out!</a>
+          <a href=${data.eats_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
         </div>
       `
     //update free section
@@ -194,7 +194,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Try These for FREE!</h5>
           <p class="card-text">${data.free_headline} </p>
-          <a href=${data.free_link} class="btn btn-primary btn-block">Check it out!</a>
+          <a href=${data.free_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
         </div>
       `
     //update night life
@@ -203,7 +203,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Best Bars for Nightlife</h5>
           <p class="card-text">${data.nightlife_headline} </p>
-          <a href=${data.nightlife_link} class="btn btn-primary btn-block">Check it out!</a>
+          <a href=${data.nightlife_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
         </div>
       `
     //update sights
@@ -212,7 +212,7 @@
         <div class="card-body text-center"> 
           <h5 class="card-title">Exciting Sights</h5>
           <p class="card-text">${data.sights_headline}</p>
-          <a href=${data.sights_link} class="btn btn-primary btn-block">Learn more</a>
+          <a href=${data.sights_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
         </div>
       `
     //update Bars
@@ -221,7 +221,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Best Bars</h5>
           <p class="card-text">${data.bars_headline}</p>
-          <a href=${data.bars_link} class="btn btn-primary btn-block">Learn more</a>
+          <a href=${data.bars_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
         </div>
       `
     //update Family acitivities
@@ -230,7 +230,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Fun Family Activities</h5>
           <p class="card-text">${data.family_headline}</p>
-          <a href=${data.family_link} class="btn btn-primary btn-block">Learn more</a>
+          <a href=${data.family_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
         </div>
       `
     displayWeather( data.city_name )
