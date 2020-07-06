@@ -58,28 +58,42 @@
       </nav>
   
       <!-- Nav bar end -->
-
-     
-
-    <form>
+      <form action="/api/addCity" method="POST">
         <div class="submit-form-group">
-        <div class="form-group"> 
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Enter City Name</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            <label for="cityName">City Name</label>
+            <input name="cityName" type="text" class="form-control" id="cityName">
+            <label for="countryName">Country Name</label>
+            <input name="countryName" type="text" class="form-control" id="countryName">
+    
           </div>
+     
+          <div class="form-group">
+            <label for="fields">Select your category</label>
+            <select name="fields" class="form-control" id="fields">
+              <option>hotels</option>
+              <option>bars</option>
+              <option>eats</option>
+              <option>family</option>
+            </select>
+          </div>   
+
+          <label for="headline">Headline of your article</label>
+      <input name="headline" type="text" class="form-control" id="headline"> 
+
+      <div class="form-group">
+        <label for="link">Seach for key words </label>
+        <textarea name="link" class="form-control" id="link" rows="1"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+ 
           
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Select Country</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Greece</option>
-            <option>Cancún</option>
-            <option>Iceland</option>
-            <option>Philippines</option>
+        
             
           </select>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="exampleFormControlSelect2">Select Category</label>
           <select multiple class="form-control" id="exampleFormControlSelect2">
             <option> Hotels</option>
@@ -88,12 +102,17 @@
             <option>Nightlife</option>
             <option>Family fun</option>
           </select>
-        </div> 
-        <div id="button-div">
+        </div>  -->
+        <!-- <div id="button-div">
           <button type="submit" id="submit">Submit</button>
-      </div>
+      </div> -->
         
     </div>
-      </form>
+      <!-- </form> 
+      <form action="/team_name_url/" method="post">
+        <label for="team_name">Enter name: </label>
+        <input id="team_name" type="text" name="name_field" value="Default name for team.">
+        <input type="submit" value="OK">
+    </form> -->
 </body>
 </html>
