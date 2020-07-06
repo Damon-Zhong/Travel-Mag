@@ -57,10 +57,17 @@
         </div>
       </nav>
   
-      <!-- Nav bar end -->
+      <!-- Nav bar end -->  
+
+      <div class ="formcontainer" >
+    
+      <h3> Filtered search result </h3> 
+
+    </div>
+
       <form action="/api/addCity" method="POST">
         <div class="submit-form-group">
-          <div class="form-group">
+          <div class="form-group"> 
             <label for="cityName">City Name</label>
             <input name="cityName" type="text" class="form-control" id="cityName">
             <label for="countryName">Country Name</label>
@@ -69,12 +76,15 @@
           </div>
      
           <div class="form-group">
-            <label for="fields">Select your category</label>
+            <label for="fields">Select your category </label>
             <select name="fields" class="form-control" id="fields">
-              <option>hotels</option>
-              <option>bars</option>
-              <option>eats</option>
-              <option>family</option>
+              <option>Hotels</option>
+              <option>Bars</option>
+              <option>Eats</option> 
+              <option>Sights</option>   
+              <option>Nightlife</option> 
+              <option>Free</option> 
+              <option>Family</option>
             </select>
           </div>   
 
