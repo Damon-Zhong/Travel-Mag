@@ -95,6 +95,27 @@ body {
   border-color: #3D405B;
 }
 
+/* City: Header styles */
+
+#city-picture {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  text-shadow: 2px 2px linen;
+  position: relative;
+}
+
+#city-copy {
+  background-color: #3D405B;
+  text-shadow: none;
+  color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 /* Make the image fully responsive
  .carousel-inner img {
     width: 100%;
