@@ -1,6 +1,6 @@
 
 
-  # MyCity  ( coMeDia)n
+  # MyCity  ( coMeDia)
 
   ![Project Image] 
 
@@ -53,7 +53,7 @@
 - MySQL database    
 
 
-### APIs Used 
+### API
 
  - Pictures: 
  - Weather: 
@@ -61,7 +61,7 @@
  - Cities: 
 
 
-### Hosting Platforms Used
+### Hosting Platforms 
 - Github
 - Heroku
 
