@@ -1,10 +1,119 @@
-# Project_2 
+ # MYCity  ( coMeDia)
+
+  ![Project Image] 
+
+  > Landing Page of MyCity
+
+ ---
+
+  ### Table of Contents
+  - [Description](#description)
+ - [How To Use](#how-to-use)
+ - [References](#references)
+ - [License](#license)
+ - [Author Info](#author-info)
+
+  ---
+
+  ## Description
+
+  
+ <p> MyCity is app where the user get acess to all to all the top destinations in a city. From top Hotels, to the best resterants and bars in town  to even ideas on what activites you can enjoy with the kids.  With our app we bring the user series of articales that list out the most famouse and best of each catgegory.  This making  it easier for the user to acess to all the inforation on one plateform , making it easeri to plan out their itineray for their vist. </p>  
+
+ 
+
+  #### Technologies
+
+- Github
+- Heruko
+- ?
+
+  [Back To The Top](#read-me-template)
+
+  ---
+
+  ## How to run the application 
+
+- run npm run start. The application will start running on port _____.
+
+
+
+
+  #### Installation
+
+ 
+ 
+  #### Software and API Reference 
+
+  <p>Languges Used </p> 
+  - HTML/CSS 
+  - JavaScript 
+  - Node 
+  - MySQL database  
+  - ?
+<p> The following are API used for this application.  </p>
+     <p>API for pictures</p> 
+     <p> API for flights</p> 
+     <p> API for weather</p> 
+     <p> API for destination articals</p> 
+ ```
+ [Back To The Top](#read-me-template)
+
+  ---
+
+  ## Our Team   
+  - Marcel 
+  - Etam 
+  - Damon  
+  - Sadia 
+ [Back To The Top](#read-me-template)
+
+  ---
+
+  ## License
+
+  MIT License
+
+  Copyright (c) [2020] [coMeDia]
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+  [Back To The Top](#read-me-template)
+
+  ---
+
+  [Back To The Top](#read-me-template)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- # Project_2 
 
 <h1>MyCity</h1>
 
 <h2>We make sure that your get the best experiace out of your trip</h2>
 
-<p> MyCity is app where the user get acess to all to all the top destinations in a city. From top Hotels, to the best resterants and bars in town  to even ideas on what activites you can enjoy with the kids.  With our app we bring the user series of articales that list out the most famouse and best of each catgegory.  This making  it easier for the user to acess to all the inforation on one plateform , making it easeri to plan out their itineray for their vist. </p> 
+
 
 
 
@@ -14,9 +123,7 @@ produces a line break.</p>
 <p>The the Topics that we cover for each City are <em>italic</em>, 
 <strong>bold</strong>, <code>monospace</code>.</p>
 
-<p>Horizontal rule:</p>
 
-<hr />
 
 
 <p>The topics that we cover for each city are:</p>
@@ -70,7 +177,7 @@ ScreenShot of MyCity app landing page </blockquote>
 
 </ul>
 
-<p>Langauge used for developing</p>
+<p>Langauge used for developing:</p>
 
 <ul>
 <li>HTML</li>
@@ -83,9 +190,10 @@ ScreenShot of MyCity app landing page </blockquote>
 
 </ul> 
 
+
 <h3> coMeDia Team</h3> 
 
 Marcel (lastName) 
 Damon  
 Ettam 
-Sadia 
+Sadia  -->
