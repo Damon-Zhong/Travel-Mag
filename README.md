@@ -9,7 +9,7 @@
  ---
 
   ### Table of Contents (#table-of-contents)
-  - [Description](#description)
+ - [Description](#description)
  - [Technologies](#technologies)
  - [Future Road Map](#future-road-map)
  - [License](#license)
@@ -30,7 +30,7 @@
 <p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>    
  
 
-- More pptions for cities   
+- More options for cities   
 - Prices for Hotels with direct links for booking 
 - Itinerary where user can plan their trips in detail and have save for future  
 - Comment section where other user can share experience and ask questions  
@@ -58,7 +58,7 @@
  - Pictures: 
  - Weather: 
  - Flights: 
- - Cities 
+ - Cities: 
 
 
 ### Hosting Platforms Used
