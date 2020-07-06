@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
-
 <body class="backgroundWhole">
-
-
-  <!-- Nav bar begin -->
-
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white;">
-    <a class="navbar-brand" href="index.html">coMeDia</a>
+       
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg" style="background-color:white;">
+    <a class="navbar-brand logo" href="/">Travel<span class="blue">Mag</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,25 +24,18 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Hotels<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="flight.html">Flights<button class="fa fa-plane aircraftIcon" type="button"
-              id="button-addon2"></button></a>
-
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Destinations
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="city1.html">City1</a>
-            <a class="dropdown-item" href="#">City2</a>
-            <a class="dropdown-item" href="#">City3</a>
+            <a class="dropdown-item" href="city1.html">Greece</a>
+            <a class="dropdown-item" href="/Cancun">Cancún</a>
+            <a class="dropdown-item" href="#">Iceland</a>
+            <a class="dropdown-item" href="#">Philippines</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">somewhere else</a>
           </div>
         </li>
         <li class="nav-item">
@@ -62,50 +45,85 @@
                 <a class="nav-link" href="#">Login</a>
               </li> -->
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
+      <form class="form-inline my-2 my-lg-0" onsubmit="searchCities(event)">
+        <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Where to?"
           aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </nav>
 
-  <!-- Nav bar end -->
+  <!-- Image header -->
+  <div id="image-header">
+    <div class="container">
+      <h1>Thanks for making a contribution!</h1> 
+    </div>
+  </div>
 
-
-
-  <form>
-    <div class="submit-form-group">
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <!-- Submission form -->
+  <div class="container">
+    <h4 class="mt-5">How contributing to TravelMag works</h4>
+    <p>Thank you so much for helping us improve TravelMag!<br><br>In order to process your contribution correctly, we need external 
+      links about all the topics we're going to ask you about. In addition to that, we'd like to ask you to give each article a 
+      headline or summary. You can write something yourself or simply copy the external article's headline.<br><br>At the end, you can 
+      leave a bit of info about you to tell our users what makes you a specialist for your city.</p>
+    <form action="/api/addCity" method="POST">
+      <div class="submit-form-group">
+        <div class="form-group">
+          <h4 class="mt-5">Let's get started with the basics. What city are you adding?</h4> 
+          <label for="cityName">City Name</label>
+          <input name="cityName" type="text" class="form-control" id="cityName">
+          <label for="countryName">Country Name</label>
+          <input name="countryName" type="text" class="form-control" id="countryName">
+          <h4 class="mt-5">What are the best sights?</h4>
+          <label for="sights_link">Drop us a link to an article describing the best sights</label>
+          <input name="sights_link" type="text" class="form-control" id="sights_link">
+          <label for="sights_headline">Sights summary/headline</label>
+          <input name="sights_headline" type="text" class="form-control" id="sights_headline">
+          <h4 class="mt-5">What are your recommendations for the best restaurants, bars, and clubs?</h4>
+          <label for="eats_link">Do you have a link about cool restaurants?</label>
+          <input name="eats_link" type="text" class="form-control" id="eats_link">
+          <label for="eats_headline">Restaurants summary/headline</label>
+          <input name="eats_headline" type="text" class="form-control" id="eats_headline">
+          <label for="bars_link">Drop a link to an article about the best bars here!</label>
+          <input name="bars_link" type="text" class="form-control" id="bars_link">
+          <label for="bars_headline">Bars summary/headline</label>
+          <input name="bars_headline" type="text" class="form-control" id="bars_headline">
+          <label for="nightlife_link">What are the best clubs? Enter a link here:</label>
+          <input name="nightlife_link" type="text" class="form-control" id="nightlife_link">
+          <label for="nightlife_headline">Nightlife summary/headline</label>
+          <input name="nightlife_headline" type="text" class="form-control" id="nightlife_headline">
+          <h4 class="mt-5">What hotels would you recommend?</h4>
+          <label for="hotels_link">Please enter a link to an article about hotels here:</label>
+          <input name="hotels_link" type="text" class="form-control" id="hotels_link">
+          <label for="hotels_headline">Hotels headline/summary</label>
+          <input name="hotels_headline" type="text" class="form-control" id="hotels_headline">
+          <h4 class="mt-5">Any recommendations around free things to do or things to do with kids?</h4>
+          <label for="free_link">What article recommends the best free things to do? Enter the link here:</label>
+          <input name="free_link" type="text" class="form-control" id="free_link">
+          <label for="free_headline">Free things to do headline/summary:</label>
+          <input name="free_headline" type="text" class="form-control" id="free_headline">
+          <label for="family_link">What are the best things to do with kids? Leave a link here:</label>
+          <input name="family_link" type="text" class="form-control" id="family_link">
+          <label for="family_headline">Kids summary/headline</label>
+          <input name="family_headline" type="text" class="form-control" id="family_headline">
+          <h4 class="mt-5">Who curated this list? Let our users know about you!</h4>
+          <label for="curator_name">What is your name?</label>
+          <input name="curator_name" type="text" class="form-control" id="curator_name">
+          <label for="curator_bio">What makes you a specialist on your city?</label>
+          <input name="curator_bio" type="text" class="form-control" id="curator_bio">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>Greece</option>
-          <option>Cancún</option>
-          <option>Iceland</option>
-          <option>Philippines</option>
-
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <div id="button-div">
+        <button class="btn btn-primary mt-3" type="submit" id="submit">Submit</button>
       </div>
     </div>
-  </form>
-</body>
 
+    <!-- Footer -->
+    <div class="container mt-5 footer">
+      <hr>
+      <p>Built with <i class="fa fa-globe" aria-hidden="true"></i> in Toronto | <i class="fa fa-copyright" aria-hidden="true"></i> 2020</p>
+    </div>
+
+</body>
 </html>
