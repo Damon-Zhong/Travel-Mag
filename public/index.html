@@ -232,10 +232,9 @@
     console.log(`Calling...`)
     //Retrieve city data from database
     const result = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
-    // console.log(`GET city by ID: api=/api/data?id=${cityId}`, result)
     //Pick a city view picture from Pexel
-    const cityPicURL = await fetch(`/api/pic/${result.city_name}`)
-    // console.log( `Fetching from: /api/pic/${result.city_name}, result:`, cityPicURL )
+    const picData = await fetch(`/api/pic/${result.city_name}`).then(result => result.json())
+    console.log( `Fetching from: /api/pic/${result.city_name}, result:`, picData )
     //Clear display area
     // document.querySelector("#city_info").innerHTML = ``
     //render city info
@@ -244,7 +243,7 @@
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">${result.city_name}, ${result.city_country}</h5>
-          <img src='https://images.pexels.com/photos/1471294/pexels-photo-1471294.jpeg?auto=compress&cs=tinysrgb&h=350' class="card-img-top" alt="...">
+          <img src='${picData.src.medium}' class="card-img-top" alt="${result.city_name}">
           <div class="card-body">
             <a href="/cities.html#${cityId}" class="btn btn-primary">Let's go</a>
           </div>
