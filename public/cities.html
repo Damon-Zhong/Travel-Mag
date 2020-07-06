@@ -251,6 +251,17 @@
             //fetch data from API 
             const flightPrice = await displayFlight( homecity, destinationCity, departDate, returnDate )
             //hide the input section and show price section
+            if(flightPrice==false){
+              document.querySelector("#flightIDInfor").innerHTML = `
+            <div id="flightPrice">
+              <h5>Lowest Flight Price</h5>
+              <p>Travelling from ${homecity} to ${destinationCity}</p>
+              <p>Departure at: ${departDate}</p>
+              <p>Returen at: ${returnDate}</p>
+              <p>Lowest Price: Sorry No Flights Infor </p>
+            </div>`
+
+            }else{
             document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">
               <h5>Lowest Flight Price</h5>
@@ -259,7 +270,7 @@
               <p>Returen at: ${returnDate}</p>
               <p>Lowest Price: $ ${flightPrice} </p>
             </div>`
-            
+          }
           }
 
           renderPage(cityID)
@@ -293,7 +304,7 @@
                       return converCities.Places[1].PlaceId
                     }else{
                       return converCities.Places[0].PlaceId
-                    }
+                    } 
                     
                     console.log(converCities.Places[1].PlaceId)
             }
@@ -321,7 +332,11 @@
                 .then(response => response.json())
 
                 console.log(flightInfor)
+                if(flightInfor.Quotes.length!=0){
                   return flightInfor.Quotes[0].MinPrice
+                }else{
+                  return false
+                }
             }
             
             // Flight API END
