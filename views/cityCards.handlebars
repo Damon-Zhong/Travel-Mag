@@ -1,0 +1,12 @@
+{{#each city_info}}
+<div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <h5 class="card-title">{{city_info.city_name}}, {{city_info.city_country}}</h5>
+        <img src='https://images.pexels.com/photos/1471294/pexels-photo-1471294.jpeg?auto=compress&cs=tinysrgb&h=350'
+            class="card-img-top" alt="{{city_info.city_name}}">
+        <div class="card-body">
+            <a href="/cities/{{city_info.id}}" class="btn btn-primary">Let's go</a>
+        </div>
+    </div>
+</div>
+{{/each}}

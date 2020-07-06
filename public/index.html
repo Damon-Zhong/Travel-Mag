@@ -17,6 +17,7 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
 
+  <script src="/search.js"></script>
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,6 +27,47 @@
 </head>
 
 <body>
+    <!-- Modal for choosing from multiple cities -->
+    <div
+    class="modal fade"
+    id="cityChoiceModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="cityChoiceModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">City Options</h5>
+          
+          <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div id="modal-body" class="list-group">
+              
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Nav bar begin -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white;">
     <a class="navbar-brand" href="#">coMeDia</a>
@@ -64,8 +106,8 @@
                 <a class="nav-link" href="#">Login</a>
               </li> -->
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
+      <form class="form-inline my-2 my-lg-0" onsubmit="searchCities(event)">
+        <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
           aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
@@ -135,7 +177,47 @@
   <h1>Where we go</h1>
   <div class="container">
     <div class="row" id="city_info">
-        {{{ body }}}
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title">Greece</h5>
+          <img src="../Assets/greece2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="/city1.html" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title">Cancún</h5>
+          <img src="../Assets/cancun2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="city2.html" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title">Iceland</h5>
+          <img src="../Assets/Iceland1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="city3.html" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title">Philippines</h5>
+          <img src="./Assets/Philippines.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="city4.html" class="btn btn-primary">Let's go</a>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -150,10 +232,9 @@
     console.log(`Calling...`)
     //Retrieve city data from database
     const result = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
-    // console.log(`GET city by ID: api=/api/data?id=${cityId}`, result)
     //Pick a city view picture from Pexel
-    const cityPicURL = await fetch(`/api/pic/${result.city_name}`)
-    // console.log( `Fetching from: /api/pic/${result.city_name}, result:`, cityPicURL )
+    const picData = await fetch(`/api/pic/${result.city_name}`).then(result => result.json())
+    console.log( `Fetching from: /api/pic/${result.city_name}, result:`, picData )
     //Clear display area
     // document.querySelector("#city_info").innerHTML = ``
     //render city info
@@ -162,9 +243,9 @@
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
           <h5 class="card-title">${result.city_name}, ${result.city_country}</h5>
-          <img src='https://images.pexels.com/photos/1471294/pexels-photo-1471294.jpeg?auto=compress&cs=tinysrgb&h=350' class="card-img-top" alt="...">
+          <img src='${picData.src.medium}' class="card-img-top" alt="${result.city_name}">
           <div class="card-body">
-            <a href="/cities/${cityId}" class="btn btn-primary">Let's go</a>
+            <a href="/cities.html#${cityId}" class="btn btn-primary">Let's go</a>
           </div>
         </div>
       </div>`

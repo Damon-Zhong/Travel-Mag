@@ -1,8 +1,8 @@
 require( 'dotenv' ).config()
 
-import express, { urlencoded, json, static } from "express";
-import exphbs from "express-handlebars";
-import routerController from "./controller/router";
+const express = require("express");
+const exphbs = require("express-handlebars");
+const routerController = require("./controller/router");
 
 const app = express();
 // handlebars initialization
@@ -10,8 +10,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // for parsing incoming POST data
-app.use(urlencoded({ extended: true }));
-app.use(json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 8080;
 routerController(app)
 
 // for serving media assets
-app.use( static('public') )
+app.use( express.static('public') )
 
 app.listen(PORT, function() {
     console.log( `Listening on port: ${PORT}` );

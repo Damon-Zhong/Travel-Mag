@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/Damon-Zhong/Project_2#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.5",
-    "mysql": "^2.18.1"
+    "express-handlebars": "^4.0.4",
+    "fs": "0.0.1-security",
+    "mysql": "^2.18.1",
+    "pexels-api-wrapper": "^1.1.2"
   }
 }
