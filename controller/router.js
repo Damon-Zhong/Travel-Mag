@@ -6,6 +6,12 @@ const CityModel = new City();
 const fs = require("fs")
 
 function router( app ){
+    // GET all cities
+    app.get("/api/cities/list", async function( req, res ){
+        const cities = await orm.getCityList();
+        res.send(cities);
+    })
+
     //[GET] city profile
     app.get("/cities/:id", async function( req, res ){
         const city_id = req.params.id
