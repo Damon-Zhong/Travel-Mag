@@ -152,8 +152,9 @@
         <div class="card bg-light-blue">
           <div id="flightIDInfor" class="card-body text-center">
             <h5 class="card-title">Flight Quotes</h5>
-            <input id="homecity" type="text" class="card-text" placeholder="originplace">
-            <input id="destinationCity" type="text" class="card-text" placeholder="destination">
+            <p id="homecity">Flying from: </p>
+            <input id="homeCity" type="text" class="card-text" placeholder="Flying from i.e.YYZ">
+            <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e.JFK">
             <div class="input-grp">
               <label>Departing</label>
               <input id="departdate" type="date" class="form-control select-date">
@@ -241,8 +242,8 @@
           async function checkFlight( event ){
             event.preventDefault()
 
-            //retrieve user input
-            const homecity = document.querySelector("#homecity").value
+            //retrieve user input Beijing
+            const homecity = document.querySelector("#homeCity").value
             const destinationCity =document.querySelector('#destinationCity').value
             const departDate = document.querySelector("#departdate").value
             const returnDate = document.querySelector("#returndate").value
@@ -276,13 +277,41 @@
                 <p class="card-text">Wind Speed: ${weatherInfo.wind.speed}</p>`
             }
 
+            // convert city name to airport code 
+
+            async function convertCityName(homecity){
+              const converCities= await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=${homecity}`, {
+                      "method": "GET",
+                      "headers": {
+                        "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                        "x-rapidapi-key": "1cde6f7b66msh6c1497c16d83c5bp10a1b4jsncb342850a350"
+                      }
+                    })
+                    .then(response => response.json())
+                    console.log(converCities)
+                    if(converCities.length >1){
+                      return converCities.Places[1].PlaceId
+                    }else{
+                      return converCities.Places[0].PlaceId
+                    }
+                    
+                    console.log(converCities.Places[1].PlaceId)
+            }
+
+            
+
 
             //  Flight API
             async function displayFlight( homecity, destinationcity, departdate, returndate ) {
               //proxy config
               var proxyUrl = window.location.href.indexOf('herokuapp') >-1 ? '' : 'https://cors-anywhere.herokuapp.com/'
+              // convercityname
+              const airportCode_Home = await convertCityName(homecity)
+              const airportCode_Des = await convertCityName(destinationcity )
+
+              console.log( `Home AP code:${airportCode_Home} Destination AP code:${airportCode_Des}` )
               //fetch data from Skyscanner API
-              const flightInfor = await fetch(proxyUrl+`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${homecity}-sky/${destinationcity}-sky/${departdate}?inboundpartialdate=${returndate}`, {
+              const flightInfor = await fetch(proxyUrl+`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${airportCode_Home}/${airportCode_Des}/${departdate}?inboundpartialdate=${returndate}`, {
                               "method": "GET",
                 "headers": {
                               "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
