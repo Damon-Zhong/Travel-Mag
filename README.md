@@ -1,6 +1,6 @@
 
 
-  # MYCity  ( coMeDia)n
+  # MyCity  ( coMeDia)n
 
   ![Project Image] 
 
@@ -8,7 +8,7 @@
 
  ---
 
-  ### Table of Contents
+  ### Table of Contents (#table-of-contents)
   - [Description](#description)
  - [Technologies](#technologies)
  - [Future Road Map](#future-road-map)
@@ -20,22 +20,25 @@
   ## Description
 
   
- <p> MyCity is app where the user get access to all to all the top destinations in a city. From top Hotels, to the best restaurants and bars in town  to even ideas on what activities you can enjoy with the kids.  With our app we bring the user series of articles that list out the most famous and best of each category.  This making  it easier for the user to access to all the information on one platform , making it easier  to plan out their itinerary for their trip. </p>  
+ <p> MyCity is app where the user get access to all the top destinations in a city. From top Hotels, to the best restaurants and bars in town to even ideas on what activities you can enjoy with the kids. With our app we bring the user series of articles that list out the most famous and best of each category. The user can easily plan their itinerary for trip with not only access to places to visit but also flight prices, weather and hotels  </p>  
 
 
-[Back To The Top](#description)
+[Back To The Top](#table-of-contents)
 
   ---  
 ## Future Road Map  
-<p>In the foreseeable feature our Team has many idea that can make this app more user friendly. The application that are to be added in the future are:</p>    
+<p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>    
  
 
-- More Options for Cities  
+- More pptions for cities   
+- Prices for Hotels with direct links for booking 
 - Itinerary where user can plan their trips in detail and have save for future  
 - Comment section where other user can share experience and ask questions  
-- Add additional  topics and sub categories  
+- Add additional  topics and sub categories   
+- Support for small / locally owned business 
+ 
 
-[Back To The Top](#future-road-map)
+[Back To The Top](#table-of-contents)
 
   ---  
  
@@ -66,24 +69,18 @@
 
 -  Npm run start. The application will start running on port _____.
  
-  [Back To The Top](#technologies)
+  [Back To The Top](#table-of-contents)
 
   ----
 
  
-
- 
- [Back To The Top](#read-me-template)
-
-  ---
-
   ## Our Team  at coMeDia   
   - Marcel 
   - Etam 
   - Damon  
   - Sadia  
 
- [Back To The Top](#read-me-template)
+ [Back To The Top](#table-of-contents)
 
   ---
 
@@ -111,7 +108,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 
-  [Back To The Top](#read-me-template)
+  [Back To The Top](#table-of-contents)
 
   ---
  
