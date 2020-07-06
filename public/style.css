@@ -11,6 +11,29 @@ body {
   color: white!important;
 }
 
+.navbar a {
+  color: white!important;
+}
+
+.logo {
+  font-weight: 800;
+}
+
+.blue {
+  color: #3D405B;
+}
+
+.btn-outline-success {
+  border-color: white;
+  color: white;
+}
+
+.btn-outline-success:hover {
+  border-color: white;
+  background-color: white;
+  color: #E07A5F;
+}
+
 /* Index: Loading spinner styles */
 
 #spinner {
@@ -44,6 +67,32 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.card {
+  border: 2px solid #3D405B;
+  color: #3D405B;
+}
+
+.btn-primary {
+  border-color: #E07A5F;
+  background-color: #E07A5F;
+}
+
+.btn-primary:hover {
+  border-color: #E07A5F;
+  background-color: white;
+  color: #E07A5F;
+}
+
+/* Index: Footer */
+
+.footer {
+  text-align: center;
+}
+
+.footer hr {
+  border-color: #3D405B;
 }
 
 /* Make the image fully responsive

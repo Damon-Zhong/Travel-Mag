@@ -70,7 +70,7 @@
 
   <!-- Nav bar begin -->
   <nav class="navbar navbar-expand-lg" style="background-color:white;">
-    <a class="navbar-brand" href="#">TravelMag</a>
+    <a class="navbar-brand logo" href="#">Travel<span class="blue">Mag</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -100,7 +100,7 @@
               </li> -->
       </ul>
       <form class="form-inline my-2 my-lg-0" onsubmit="searchCities(event)">
-        <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Where do you want to explore?"
+        <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Where to?"
           aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
@@ -119,6 +119,12 @@
     <h2 class="mt-5">Where do you want to go?</h2>
     <img id="spinner" src="./Assets/spinner.gif" alt="Loading..." />
     <div class="row" id="city_info"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container mt-5 footer">
+    <hr>
+    <p>Built with <i class="fa fa-globe" aria-hidden="true"></i> in Toronto | <i class="fa fa-copyright" aria-hidden="true"></i> 2020</p>
   </div>
 
 </body>
@@ -140,12 +146,12 @@
     document.querySelector("#spinner").style = "display: none";
     //render city info
       document.querySelector("#city_info").innerHTML += `
-      <div class="col-sm-4 mt-3">
+      <div class="col-sm-4 mt-4">
         <div class="card" style="width: 100%;">
-          <h5 class="card-title pt-2 pl-1">${result.city_name}, ${result.city_country}</h5>
-          <div style="background-image: url(${picData.src.medium})" class="card-img-top card-image" alt="${result.city_name}"></div>
+          <h5 class="card-title pt-2 pl-3">${result.city_name}, ${result.city_country}</h5>
+          <div style="background-image: url(${picData.src.medium})" class="card-image" alt="${result.city_name}"></div>
           <div class="card-body">
-            <a href="/cities.html#${cityId}" class="btn btn-primary">Let's go</a>
+            <a href="/cities.html#${cityId}" class="btn btn-primary btn-block">Let's go</a>
           </div>
         </div>
       </div>`
