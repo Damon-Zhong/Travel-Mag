@@ -38,17 +38,11 @@ function router( app ){
     })
  
     //[POST] submit city info
-    app.post("/api/addcity", function( req, res ){
+    app.post("/api/addcity", async function( req, res ){
         console.log(`[POST] data received:${req.body}`)
-        const userInput = req.body
-        const city_name = userInput.cityName
-        const city_description = userInput.cityDescription
-        const res_name = userInput.res_name
-        const res_addr = userInput.res_addr
-        const result = orm.addCity( city_name, city_description, res_name, res_addr )
-        const newList = orm.getCityList()
-        res.send( newList )
-        console.log(`new city list:${newList}`)
+        await orm.insertCityData( req.body.cityName, req.body.countryName, req.body.fields, req.body.headline, req.body.link )
+
+        res.redirect("/")
     })
 
     // [GET] render city content from database
