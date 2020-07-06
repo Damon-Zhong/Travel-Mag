@@ -3,11 +3,6 @@ const axios = require("axios")
 const PexelsAPI = require('pexels-api-wrapper');
 const API = new PexelsAPI("563492ad6f917000010000015e76a9ba75e443c6a2942de7f354aac8")
 
-const orm = require("../app/orm");
-const axios = require("axios")
-const PexelsAPI = require('pexels-api-wrapper');
-const API = new PexelsAPI("563492ad6f917000010000015e76a9ba75e443c6a2942de7f354aac8")
-
 class City {
     getCity = async (city_id) => {
         const city = await orm.selectCityData(city_id);
