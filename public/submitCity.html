@@ -102,7 +102,7 @@
       links about all the topics we're going to ask you about. In addition to that, we'd like to ask you to give each article a 
       headline or summary. You can write something yourself or simply copy the external article's headline.<br><br>At the end, you can 
       leave a bit of info about you to tell our users what makes you a specialist for your city. To make for the best experience
-    for our users, we require you to fill out all form fields (indicated by  <span class="red">*</span>).</p>
+    for our users, we require you to fill out all form fields except your personal info (indicated by  <span class="red">*</span>).</p>
     <form action="/api/addCity" method="POST">
       <div class="submit-form-group">
         <div class="form-group">
@@ -144,10 +144,10 @@
           <label for="family_headline">Kids summary/headline <span class="red">*</span></label>
           <input required="true" name="family_headline" type="text" class="form-control" id="family_headline"/>
           <h4 class="mt-5">Who curated this list? Let our users know about you!</h4>
-          <label for="curator_name">What is your name? <span class="red">*</span></label>
-          <input required="true" name="curator_name" type="text" class="form-control" id="curator_name"/>
-          <label for="curator_bio">What makes you a specialist on your city? <span class="red">*</span></label>
-          <input required="true" name="curator_bio" type="text" class="form-control" id="curator_bio"/>
+          <label for="curator_name">What is your name?</label>
+          <input name="curator_name" type="text" class="form-control" id="curator_name"/>
+          <label for="curator_bio">What makes you a specialist on your city?</label>
+          <input name="curator_bio" type="text" class="form-control" id="curator_bio"/>
         </div>
       </div>
       <div id="button-div">
