@@ -41,7 +41,6 @@ async function getCityInfo(cityId) {
       </div>`
 }
 
-
 async function searchCities(event) {
     event.preventDefault();
     var userInput = document.getElementById("search-box").value;
@@ -185,12 +184,14 @@ async function checkFlight(event) {
     event.preventDefault()
     //retrieve user input
     const homecity = document.querySelector("#homeCity").value
+    const homeCountry = document.querySelector("#homeCountry").value
     const destinationCity = document.querySelector('#destinationCity').value
+    const destinationCountry = document.querySelector('#destinationCountry').value
     const departDate = document.querySelector("#departdate").value
     const returnDate = document.querySelector("#returndate").value
     console.log(`homecity:${homecity}, destinationCity: ${destinationCity} depart:${departDate}, return:${returnDate}`)
     //fetch data from API 
-    const flightPrice = await fetch(`/api/flightquote/${homecity}/${destinationCity}/${departDate}/${returnDate}`).then(response => response.json())
+    const flightPrice = await fetch(`/api/flightquote/${homecity}/${homeCountry}/${destinationCity}/${destinationCountry}/${departDate}/${returnDate}`).then(response => response.json())
     //hide the input section and show price section
     if (flightPrice == false) {
         document.querySelector("#flightIDInfor").innerHTML = `

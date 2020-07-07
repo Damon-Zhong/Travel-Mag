@@ -21,39 +21,24 @@
 
 <body onload="renderCityPage(window.location.hash.substr(1))">
   <!-- Modal for choosing from multiple cities -->
-  <div
-    class="modal fade"
-    id="cityChoiceModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="cityChoiceModal"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="cityChoiceModal" tabindex="-1" role="dialog" aria-labelledby="cityChoiceModal"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">City Options</h5>
-          
-          <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-          >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
           <div id="modal-body" class="list-group">
-              
+
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-dismiss="modal"
-          >
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
         </div>
@@ -61,27 +46,27 @@
     </div>
   </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color:white;">
-      <a class="navbar-brand logo" href="/">Travel<span class="blue">Mag</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Destinations
-            </a>
-            <div id="dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="submitCity.html">Submit City</a>
-          </li>
-          <!-- <li class="nav-item">
+  <!-- Navbar -->
+  <nav class="navbar navbar-light navbar-expand-lg" style="background-color:white;">
+    <a class="navbar-brand logo" href="/">Travel<span class="blue">Mag</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Destinations
+          </a>
+          <div id="dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="submitCity.html">Submit City</a>
+        </li>
+        <!-- <li class="nav-item">
                   <a class="nav-link" href="#">Login</a>
                 </li> -->
       </ul>
@@ -142,12 +127,20 @@
       <div class="card bg-light-blue">
         <div id="flightIDInfor" class="card-body text-center">
           <h5 class="card-title">Flight Quotes</h5>
+          <!-- Home city input -->
+          <label>Home city</label>
           <input id="homeCity" type="text" class="card-text" placeholder="Flying from i.e. Toronto" style="margin: 2%;">
+          <input id="homeCountry" type="text" class="card-text" placeholder="Country of home city" style="margin: 2%;">
+          <!-- Destination city input -->
+          <label>Destination city</label>
           <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e. New York" style="margin: 2%;">
+          <input id="destinationCountry" type="text" class="card-text" placeholder="Country of destination city" style="margin: 2%;">
+          <!-- Departure Date -->
           <div class="input-grp">
             <label>Departure Date</label>
             <input id="departdate" type="date" class="form-control select-date">
           </div>
+          <!-- Return Date -->
           <div class="input-grp">
             <label>Return Date</label>
             <input id="returndate" type="date" class="form-control select-date" style="margin-bottom: 4%;">

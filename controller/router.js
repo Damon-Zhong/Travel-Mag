@@ -1,5 +1,5 @@
 const orm = require("../app/orm");
-const express = require("express");
+// const express = require("express");
 const City = require("../model/city");
 // const { response } = require("express");
 const CityModel = new City();
@@ -32,7 +32,7 @@ function router( app ){
         res.send( result )
     })
 
-    //[GET] search by city name or click on city
+    //[GET] get city weather information
     app.get("/api/weather/:cityname", async function( req, res ){
         const city_name = req.params.cityname
         const weather = await CityModel.getWeather( city_name )
@@ -55,10 +55,10 @@ function router( app ){
     });
 
     // [GET] flight quotes
-    app.get("/api/flightquote/:home/:destination/:depart/:return", async function( req, res ){
+    app.get("/api/flightquote/:home/:homecountry/:destination/:destinationcountry/:depart/:return", async function( req, res ){
         console.log(`Home city:${req.params.home} To Destination city:${req.params.destination}; Depart at:${req.params.depart}; Return at:${req.params.return}`)
-        const home_AP = await CityModel.convertCityNames( req.params.home )
-        const des_AP = await CityModel.convertCityNames( req.params.destination )
+        const home_AP = await CityModel.convertCityNames( req.params.home, req.params.homecountry )
+        const des_AP = await CityModel.convertCityNames( req.params.destination, req.params.destinationcountry )
         const quotes = await CityModel.getFlightQuote( home_AP, des_AP, req.params.depart, req.params.return )
         // console.log(price)
         res.send( quotes )
