@@ -3,7 +3,6 @@ const express = require("express");
 const City = require("../model/city");
 const { response } = require("express");
 const CityModel = new City();
-const fs = require("fs")
 
 function router( app ){
     // GET all cities
@@ -16,15 +15,12 @@ function router( app ){
     app.get("/cities/:id", async function( req, res ){
         const city_id = req.params.id
         const city_info = await orm.selectCityData(city_id)
-        // let html = fs.readFileSync( './public/cities.html', 'utf8')
         res.send( city_info )
     })
     //[GET] city profile picture from Pexel API
     app.get("/api/pic/:cityname", async function( req, res ){
         const city_name = req.params.cityname
-        // console.log(`city name:`, city_name)
         const result = await CityModel.getCityPic( city_name )
-        // console.log( `route result:`, result )
         res.send( result )
     })
 
@@ -39,7 +35,7 @@ function router( app ){
     app.get("/api/weather/:cityname", async function( req, res ){
         const city_name = req.params.cityname
         const weather = await CityModel.getWeather( city_name )
-        console.log( weather )
+
         res.send( weather )
     })
  
@@ -47,7 +43,6 @@ function router( app ){
     app.post("/api/addcity", async function( req, res ){
         console.log(`[POST] data received:${req.body}`)
         await orm.insertCityData( req.body )
-        
         res.redirect("/")
     })
 

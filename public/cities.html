@@ -54,12 +54,6 @@
   <!-- Image header -->
   <div id="city-header"></div>
 
-  <!-- Hotels -->
-  <div class="tab-pane fade" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
-    <h3>Hotels</h3>
-    <p>Top 5 places to stay at... to be displayed with cards</p>
-  </div>
-
   <!-- Cards -->
   <div class="container" id="city_profile" style="margin-top:20px">
 
@@ -101,30 +95,22 @@
       </div>
       <!-- Weather Info -->
       <div class="card bg-light-blue">
-        <div id="weatherClass" class="card-body text-center">
-          <h5 class="card-title">City
-            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/sunny-day-1642979-1394067.png" width="50"
-              height="50" alt="">
-          </h5>
-          <p class="card-text">Temperature: </p>
-          <p class="card-text">Humidity: </p>
-          <p class="card-text">Wind Speed: </p>
-        </div>
+        <div id="weatherClass" class="card-body text-center"></div>
       </div>
       <!-- Flight Info -->
       <div class="card bg-light-blue">
         <div id="flightIDInfor" class="card-body text-center">
           <h5 class="card-title">Flight Quotes</h5>
-          <input id="homeCity" type="text" class="card-text" placeholder="originplace">
-          <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e. New York">
+          <input id="homeCity" type="text" class="card-text" placeholder="originplace" style="margin: 2%;">
+          <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e. New York" style="margin: 2%;">
           <div class="input-grp">
-            <label>Departing</label>
+            <label>Departure Date</label>
             <input id="departdate" type="date" class="form-control select-date">
           </div>
 
           <div class="input-grp">
-            <label>Returning</label>
-            <input id="returndate" type="date" class="form-control select-date">
+            <label>Return Date</label>
+            <input id="returndate" type="date" class="form-control select-date" style="margin-bottom: 4%;">
           </div>
           <button class="btn btn-primary" onclick="checkFlight(event)">Check it out</button>
 
@@ -156,8 +142,6 @@
     getCityList();
 
     const cityID = window.location.hash.substr(1);
-
-    // console.log(cityID)
     //Update page information based on city ID
     async function renderPage(cityId) {
       const data = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
@@ -281,9 +265,8 @@
     }
 
     // convert city name to airport code 
-
-    async function convertCityName(homecity) {
-      const converCities = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=${homecity}`, {
+    async function convertCityName( cityName ) {
+      const converCities = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=${cityName}`, {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -292,17 +275,11 @@
       })
         .then(response => response.json())
       console.log(converCities)
-      if (converCities.Places.length > 1) {
-        return converCities.Places[1].PlaceId
-      } else {
-        return converCities.Places[0].PlaceId
-      }
-
-      console.log(converCities.Places[1].PlaceId)
+      
+      const PlaceID = converCities.Places.length > 1 ? converCities.Places[1].PlaceId : converCities.Places[0].PlaceId
+      console.log(`Place ID is:`, PlaceID)
+      return PlaceID
     }
-
-
-
 
     renderPage(cityID)
 
@@ -324,7 +301,7 @@
     async function displayFlight(homecity, destinationcity, departdate, returndate) {
       //proxy config
       var proxyUrl = window.location.href.indexOf('herokuapp') > -1 ? '' : 'https://cors-anywhere.herokuapp.com/'
-      // convercityname
+      // conver cityname
       const airportCode_Home = await convertCityName(homecity)
       const airportCode_Des = await convertCityName(destinationcity)
 

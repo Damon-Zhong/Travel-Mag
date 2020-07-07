@@ -13,7 +13,7 @@ var orm = {
 
     insertCityData: function ( inputObj ){
         console.log(`Inserting Data:`, inputObj )
-        // const keyArray = Object.keys( inputObj )//array of keys of input object
+
         const queryString = "INSERT INTO cities SET ? "
         return new Promise((resolve, reject) => {
             connection.query(queryString, inputObj, (err, res) => {
