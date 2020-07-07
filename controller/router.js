@@ -10,12 +10,6 @@ function router( app ){
         res.send(cities);
     })
 
-    //[GET] city profile
-    app.get("/cities/:id", async function( req, res ){
-        const city_id = req.params.id
-        const city_info = await orm.selectCityData(city_id)
-        res.send( city_info )
-    })
     //[GET] city profile picture from Pexel API
     app.get("/api/pic/:cityname", async function( req, res ){
         const city_name = req.params.cityname
@@ -57,9 +51,14 @@ function router( app ){
         console.log(`Home city:${req.params.home} To Destination city:${req.params.destination}; Depart at:${req.params.depart}; Return at:${req.params.return}`)
         const home_AP = await CityModel.convertCityNames( req.params.home, req.params.homecountry )
         const des_AP = await CityModel.convertCityNames( req.params.destination, req.params.destinationcountry )
-        const quotes = await CityModel.getFlightQuote( home_AP, des_AP, req.params.depart, req.params.return )
-        // console.log(price)
-        res.send( quotes )
+        if ( home_AP && des_AP) {
+            console.log( `Airport codes found` )
+            const quotes = await CityModel.getFlightQuote(home_AP, des_AP, req.params.depart, req.params.return)
+            res.status(200).send( quotes )
+        }else{
+            console.log( `Airport codes missing.`)
+            res.send( { status: false, message: `City Not Found. Please try again.` } )
+        }
     })
 }
 

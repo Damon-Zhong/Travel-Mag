@@ -44,8 +44,8 @@ class City {
         const convert_API = `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=${cityName}`
         var converCities = await axios.get(convert_API, fetch_setting)
         converCities = converCities.data.Places.filter( result => result.CountryName.toLowerCase() == countryName.toLowerCase() )
-        // console.log( converCities ) 
-        return converCities.length > 1 ? converCities[1].PlaceId : converCities[0].PlaceId
+        console.log( converCities ) 
+        return converCities.length > 0 ? converCities[0].PlaceId : ''
     }
 
     getFlightQuote = async ( home_AP_code, desdes_AP_code, departdate, returndate) => {

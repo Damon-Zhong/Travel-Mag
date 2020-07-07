@@ -191,9 +191,11 @@ async function checkFlight(event) {
     const returnDate = document.querySelector("#returndate").value
     console.log(`homecity:${homecity}, destinationCity: ${destinationCity} depart:${departDate}, return:${returnDate}`)
     //fetch data from API 
-    const flightPrice = await fetch(`/api/flightquote/${homecity}/${homeCountry}/${destinationCity}/${destinationCountry}/${departDate}/${returnDate}`).then(response => response.json())
+    const flightPrice = await fetch(`/api/flightquote/${homecity}/${homeCountry}/${destinationCity}/${destinationCountry}/${departDate}/${returnDate}`).then( response => response.json() )
+    console.log(flightPrice.status)
     //hide the input section and show price section
-    if (flightPrice == false) {
+    if ( flightPrice == false ) {
+        console.log(`No flights available.`)
         document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">         
                 <p>Important: This destination may have COVID-19 travel restrictions in place, including specific restrictions for lodging. Check any national, local, and health advisories for this destination before you book.</p>
@@ -201,7 +203,16 @@ async function checkFlight(event) {
                 <button type="submit" class="btn btn-info" onClick="window.location.reload()">&#128549; Try it again?</button>
             </div>`
 
-    } else {
+    } else if( flightPrice.status == false ){
+        console.log(`City name not found.`)
+        document.querySelector("#flightIDInfor").innerHTML = `
+            <div id="flightPrice">         
+                <p>${flightPrice.message}</p>
+                <button type="submit" class="btn btn-info" onClick="window.location.reload()">&#128549; Try it again?</button>
+            </div>`
+
+    }else{
+        console.log(`Flights available.`)
         document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">
                 <h5>Lowest Flight Price</h5>
