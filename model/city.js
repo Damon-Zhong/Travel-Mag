@@ -1,7 +1,7 @@
 const orm = require("../app/orm");
 const axios = require("axios")
 const PexelsAPI = require('pexels-api-wrapper');
-const API = new PexelsAPI("563492ad6f91700001000001129d53cdb13a4d1e8f6eb72fd2b59822")
+const API = new PexelsAPI(process.env.PEXEL_API_KEY)
 
 class City {
     getCity = async (city_id) => {
@@ -10,17 +10,15 @@ class City {
     }
 
     getWeather = async (cityName) => {
-        const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=c6f6f0d5ef4d5464dfe745e65c596599`;
+        const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${process.env.WEATHER_API_KEY}`;
         //Retrieve data from api
         const result = await axios.get(api)
-        // console.log( result )
         return result.data
     }
 
     getCityPic = async (cityName) => {
         const query = cityName
         const result = await API.search(query, 10, 1)
-        console.log('result', result)
         if (result) {
             // return the first photo obj
             return result.photos[0]
