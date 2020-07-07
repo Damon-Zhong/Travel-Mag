@@ -125,3 +125,9 @@ body {
 #curator-card {
   display: none;
 }
+
+/* Submit city: Form styles */
+
+.red {
+  color: #E07A5F;
+}
