@@ -183,15 +183,14 @@ async function displayWeather(cityName) {
 
 async function checkFlight(event) {
     event.preventDefault()
-
-    //retrieve user input Beijing
+    //retrieve user input
     const homecity = document.querySelector("#homeCity").value
     const destinationCity = document.querySelector('#destinationCity').value
     const departDate = document.querySelector("#departdate").value
     const returnDate = document.querySelector("#returndate").value
     console.log(`homecity:${homecity}, destinationCity: ${destinationCity} depart:${departDate}, return:${returnDate}`)
     //fetch data from API 
-    const flightPrice = await flightQuote(homecity, destinationCity, departDate, returnDate)
+    const flightPrice = await fetch(`/api/flightquote/${homecity}/${destinationCity}/${departDate}/${returnDate}`).then(response => response.json())
     //hide the input section and show price section
     if (flightPrice == false) {
         document.querySelector("#flightIDInfor").innerHTML = `
@@ -208,50 +207,8 @@ async function checkFlight(event) {
                 <p>Travelling from ${homecity} to ${destinationCity}</p>
                 <p>Departure at: ${departDate}</p>
                 <p>Returen at: ${returnDate}</p>
-                <p>Lowest Price: $ ${flightPrice} </p>
+                <p>Lowest Price: $ ${flightPrice.MinPrice} </p>
             </div>`
     }
-}
-
-async function flightQuote(homecity, destinationcity, departdate, returndate) {
-    //proxy config
-    var proxyUrl = window.location.href.indexOf('herokuapp') > -1 ? '' : 'https://cors-anywhere.herokuapp.com/'
-    // conver cityname
-    const airportCode_Home = await convertCityName(homecity)
-    const airportCode_Des = await convertCityName(destinationcity)
-    console.log(`Home AP code:${airportCode_Home} Destination AP code:${airportCode_Des}`)
-    //fetch data from Skyscanner API
-    const flightInfor = await fetch(proxyUrl + `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${airportCode_Home}/${airportCode_Des}/${departdate}?inboundpartialdate=${returndate}`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            "x-rapidapi-key": "1cde6f7b66msh6c1497c16d83c5bp10a1b4jsncb342850a350"
-        }
-    }).then(response => response.json())
-
-    console.log(flightInfor)
-    return flightInfor.Quotes.length != 0 ? flightInfor.Quotes[0].MinPrice : false
-    // if (flightInfor.Quotes.length != 0) {
-    //   return flightInfor.Quotes[0].MinPrice
-    // } else {
-    //   return false
-    // }
-}
-
-// convert city name to airport code 
-async function convertCityName(cityName) {
-    const converCities = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=${cityName}`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            "x-rapidapi-key": "1cde6f7b66msh6c1497c16d83c5bp10a1b4jsncb342850a350"
-        }
-    })
-        .then(response => response.json())
-    console.log(converCities)
-
-    const PlaceID = converCities.Places.length > 1 ? converCities.Places[1].PlaceId : converCities.Places[0].PlaceId
-    console.log(`Place ID is:`, PlaceID)
-    return PlaceID
 }
 

@@ -1,7 +1,7 @@
 const orm = require("../app/orm");
 const express = require("express");
 const City = require("../model/city");
-const { response } = require("express");
+// const { response } = require("express");
 const CityModel = new City();
 require('dotenv').config();
 
@@ -53,6 +53,16 @@ function router( app ){
         const data = await CityModel.getCity(cityId);
         res.send(data);
     });
+
+    // [GET] flight quotes
+    app.get("/api/flightquote/:home/:destination/:depart/:return", async function( req, res ){
+        console.log(`Home city:${req.params.home} To Destination city:${req.params.destination}; Depart at:${req.params.depart}; Return at:${req.params.return}`)
+        const home_AP = await CityModel.convertCityNames( req.params.home )
+        const des_AP = await CityModel.convertCityNames( req.params.destination )
+        const quotes = await CityModel.getFlightQuote( home_AP, des_AP, req.params.depart, req.params.return )
+        // console.log(price)
+        res.send( quotes )
+    })
 }
 
 module.exports = router
