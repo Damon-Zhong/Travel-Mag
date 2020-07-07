@@ -153,8 +153,8 @@
           <div id="flightIDInfor" class="card-body text-center">
             <h5 class="card-title">Flight Quotes</h5>
             <p id="homecity">Flying from: </p>
-            <input id="homeCity" type="text" class="card-text" placeholder="Flying from i.e.YYZ">
-            <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e.JFK">
+            <input id="homeCity" type="text" class="card-text" placeholder="Flying from i.e.Toronto">
+            <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e. New York">
             <div class="input-grp">
               <label>Departing</label>
               <input id="departdate" type="date" class="form-control select-date">
@@ -253,12 +253,10 @@
             //hide the input section and show price section
             if(flightPrice==false){
               document.querySelector("#flightIDInfor").innerHTML = `
-            <div id="flightPrice">
-              <h5>Lowest Flight Price</h5>
-              <p>Travelling from ${homecity} to ${destinationCity}</p>
-              <p>Departure at: ${departDate}</p>
-              <p>Returen at: ${returnDate}</p>
-              <p>Lowest Price: Sorry No Flights Infor </p>
+            <div id="flightPrice">         
+              <p>Important: This destination may have COVID-19 travel restrictions in place, including specific restrictions for lodging. Check any national, local, and health advisories for this destination before you book.</p>
+              <p>We've searched more than 400 airlines, couldn't find any flights</p>
+              <button type="submit" class="btn btn-info" onClick="refreshPage()">Try it again</button>
             </div>`
 
             }else{
@@ -270,8 +268,11 @@
               <p>Returen at: ${returnDate}</p>
               <p>Lowest Price: $ ${flightPrice} </p>
             </div>`
-          }
-          }
+          }}
+
+          function refreshPage(){
+              window.location.reload();
+} 
 
           renderPage(cityID)
 
