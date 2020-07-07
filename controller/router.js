@@ -3,6 +3,7 @@ const express = require("express");
 const City = require("../model/city");
 const { response } = require("express");
 const CityModel = new City();
+require('dotenv').config();
 
 function router( app ){
     // GET all cities
