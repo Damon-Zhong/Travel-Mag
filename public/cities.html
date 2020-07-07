@@ -142,19 +142,22 @@
       <div class="card bg-light-blue">
         <div id="flightIDInfor" class="card-body text-center">
           <h5 class="card-title">Flight Quotes</h5>
-          <input id="homeCity" type="text" class="card-text" placeholder="originplace" style="margin: 2%;">
+          <input id="homeCity" type="text" class="card-text" placeholder="Flying from i.e. Toronto" style="margin: 2%;">
           <input id="destinationCity" type="text" class="card-text" placeholder="Flying to i.e. New York" style="margin: 2%;">
           <div class="input-grp">
             <label>Departure Date</label>
             <input id="departdate" type="date" class="form-control select-date">
           </div>
-
           <div class="input-grp">
             <label>Return Date</label>
             <input id="returndate" type="date" class="form-control select-date" style="margin-bottom: 4%;">
           </div>
           <button class="btn btn-primary" onclick="checkFlight(event)">Check it out</button>
-
+        </div>
+      </div>
+      <!-- Curator info -->
+      <div id="curator-card" class="card bg-light-blue">
+        <div id="curator">
         </div>
       </div>
     </div>

@@ -101,52 +101,53 @@
     <p>Thank you so much for helping us improve TravelMag!<br><br>In order to process your contribution correctly, we need external 
       links about all the topics we're going to ask you about. In addition to that, we'd like to ask you to give each article a 
       headline or summary. You can write something yourself or simply copy the external article's headline.<br><br>At the end, you can 
-      leave a bit of info about you to tell our users what makes you a specialist for your city.</p>
+      leave a bit of info about you to tell our users what makes you a specialist for your city. To make for the best experience
+    for our users, we require you to fill out all form fields except your personal info (indicated by  <span class="red">*</span>).</p>
     <form action="/api/addCity" method="POST">
       <div class="submit-form-group">
         <div class="form-group">
           <h4 class="mt-5">Let's get started with the basics. What city are you adding?</h4> 
-          <label for="cityName">City Name</label>
-          <input name="city_Name" type="text" class="form-control" id="cityName">
-          <label for="countryName">Country Name</label>
-          <input name="city_country" type="text" class="form-control" id="countryName">
+          <label for="cityName">City Name <span class="red">*</span></label>
+          <input required="true" name="city_Name" type="text" class="form-control" id="cityName"/>
+          <label for="countryName">Country Name <span class="red">*</span></label>
+          <input required="true" name="city_country" type="text" class="form-control" id="countryName"/>
           <h4 class="mt-5">What are the best sights?</h4>
-          <label for="sights_link">Drop us a link to an article describing the best sights</label>
-          <input name="sights_link" type="text" class="form-control" id="sights_link">
-          <label for="sights_headline">Sights summary/headline</label>
-          <input name="sights_headline" type="text" class="form-control" id="sights_headline">
+          <label for="sights_link">Drop us a link to an article describing the best sights <span class="red">*</span></label>
+          <input required="true" name="sights_link" type="text" class="form-control" id="sights_link"/>
+          <label for="sights_headline">Sights summary/headline <span class="red">*</span></label>
+          <input required="true" name="sights_headline" type="text" class="form-control" id="sights_headline"/>
           <h4 class="mt-5">What are your recommendations for the best restaurants, bars, and clubs?</h4>
-          <label for="eats_link">Do you have a link about cool restaurants?</label>
-          <input name="eats_link" type="text" class="form-control" id="eats_link">
-          <label for="eats_headline">Restaurants summary/headline</label>
-          <input name="eats_headline" type="text" class="form-control" id="eats_headline">
-          <label for="bars_link">Drop a link to an article about the best bars here!</label>
-          <input name="bars_link" type="text" class="form-control" id="bars_link">
-          <label for="bars_headline">Bars summary/headline</label>
-          <input name="bars_headline" type="text" class="form-control" id="bars_headline">
-          <label for="nightlife_link">What are the best clubs? Enter a link here:</label>
-          <input name="nightlife_link" type="text" class="form-control" id="nightlife_link">
-          <label for="nightlife_headline">Nightlife summary/headline</label>
-          <input name="nightlife_headline" type="text" class="form-control" id="nightlife_headline">
+          <label for="eats_link">Do you have a link about cool restaurants? <span class="red">*</span></label>
+          <input required="true" name="eats_link" type="text" class="form-control" id="eats_link"/>
+          <label for="eats_headline">Restaurants summary/headline <span class="red">*</span></label>
+          <input required="true" name="eats_headline" type="text" class="form-control" id="eats_headline"/>
+          <label for="bars_link">Drop a link to an article about the best bars here! <span class="red">*</span></label>
+          <input required="true" name="bars_link" type="text" class="form-control" id="bars_link"/>
+          <label for="bars_headline">Bars summary/headline <span class="red">*</span></label>
+          <input required="true" name="bars_headline" type="text" class="form-control" id="bars_headline"/>
+          <label for="nightlife_link">What are the best clubs? Enter a link here: <span class="red">*</span></label>
+          <input required="true" name="nightlife_link" type="text" class="form-control" id="nightlife_link"/>
+          <label for="nightlife_headline">Nightlife summary/headline <span class="red">*</span></label>
+          <input required="true" name="nightlife_headline" type="text" class="form-control" id="nightlife_headline"/>
           <h4 class="mt-5">What hotels would you recommend?</h4>
-          <label for="hotels_link">Please enter a link to an article about hotels here:</label>
-          <input name="hotels_link" type="text" class="form-control" id="hotels_link">
-          <label for="hotels_headline">Hotels headline/summary</label>
-          <input name="hotels_headline" type="text" class="form-control" id="hotels_headline">
+          <label for="hotels_link">Please enter a link to an article about hotels here: <span class="red">*</span></label>
+          <input required="true" name="hotels_link" type="text" class="form-control" id="hotels_link"/>
+          <label for="hotels_headline">Hotels headline/summary <span class="red">*</span></label>
+          <input required="true" name="hotels_headline" type="text" class="form-control" id="hotels_headline"/>
           <h4 class="mt-5">Any recommendations around free things to do or things to do with kids?</h4>
-          <label for="free_link">What article recommends the best free things to do? Enter the link here:</label>
-          <input name="free_link" type="text" class="form-control" id="free_link">
-          <label for="free_headline">Free things to do headline/summary:</label>
-          <input name="free_headline" type="text" class="form-control" id="free_headline">
-          <label for="family_link">What are the best things to do with kids? Leave a link here:</label>
-          <input name="family_link" type="text" class="form-control" id="family_link">
-          <label for="family_headline">Kids summary/headline</label>
-          <input name="family_headline" type="text" class="form-control" id="family_headline">
+          <label for="free_link">What article recommends the best free things to do? Enter the link here: <span class="red">*</span></label>
+          <input required="true" name="free_link" type="text" class="form-control" id="free_link"/>
+          <label for="free_headline">Free things to do headline/summary: <span class="red">*</span></label>
+          <input required="true" name="free_headline" type="text" class="form-control" id="free_headline"/>
+          <label for="family_link">What are the best things to do with kids? Leave a link here: <span class="red">*</span></label>
+          <input required="true" name="family_link" type="text" class="form-control" id="family_link"/>
+          <label for="family_headline">Kids summary/headline <span class="red">*</span></label>
+          <input required="true" name="family_headline" type="text" class="form-control" id="family_headline"/>
           <h4 class="mt-5">Who curated this list? Let our users know about you!</h4>
           <label for="curator_name">What is your name?</label>
-          <input name="curator_name" type="text" class="form-control" id="curator_name">
+          <input name="curator_name" type="text" class="form-control" id="curator_name"/>
           <label for="curator_bio">What makes you a specialist on your city?</label>
-          <input name="curator_bio" type="text" class="form-control" id="curator_bio">
+          <input name="curator_bio" type="text" class="form-control" id="curator_bio"/>
         </div>
       </div>
       <div id="button-div">
