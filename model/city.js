@@ -1,7 +1,7 @@
 const orm = require("../app/orm");
 const axios = require("axios")
 const PexelsAPI = require('pexels-api-wrapper');
-const API = new PexelsAPI("563492ad6f917000010000015e76a9ba75e443c6a2942de7f354aac8")
+const API = new PexelsAPI("563492ad6f91700001000001129d53cdb13a4d1e8f6eb72fd2b59822")
 
 class City {
     getCity = async (city_id) => {
@@ -20,8 +20,13 @@ class City {
     getCityPic = async (cityName) => {
         const query = cityName
         const result = await API.search(query, 10, 1)
-        // return the first photo obj
-        return result.photos[0]
+        console.log('result', result)
+        if (result) {
+            // return the first photo obj
+            return result.photos[0]
+        }
+
+        return {}
     }
 
     searchCities = async (cityQuery) => {

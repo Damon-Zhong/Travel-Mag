@@ -1,4 +1,126 @@
- /* Make the image fully responsive */
+/* Document styles */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Index: Navbar styles */
+
+.navbar {
+  background-color: #E07A5F!important;
+  color: white!important;
+}
+
+.navbar a {
+  color: white!important;
+}
+
+.logo {
+  font-weight: 800;
+}
+
+.blue {
+  color: #3D405B;
+}
+
+.btn-outline-success {
+  border-color: white;
+  color: white;
+}
+
+.btn-outline-success:hover {
+  border-color: white;
+  background-color: white;
+  color: #E07A5F;
+}
+
+#dropdown a.dropdown-item {
+  color: #3D405B!important;
+}
+
+/* Index: Loading spinner styles */
+
+#spinner {
+  margin: 20px auto;
+  width: 100px;
+  display: block;
+}
+
+/* Index: Image header styles */
+
+#image-header {
+  height: 400px;
+  width: 100%;
+  background-image: url(./Assets/travel2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  text-shadow: 2px 2px linen;
+}
+
+#image-header h1 {
+  font-weight: 800;
+}
+
+/* Index: Card styles */
+
+.card-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card {
+  border: 2px solid #3D405B;
+  color: #3D405B;
+}
+
+.btn-primary {
+  border-color: #E07A5F;
+  background-color: #E07A5F;
+}
+
+.btn-primary:hover {
+  border-color: #E07A5F;
+  background-color: white;
+  color: #E07A5F;
+}
+
+/* Index: Footer */
+
+.footer {
+  text-align: center;
+}
+
+.footer hr {
+  border-color: #3D405B;
+}
+
+/* City: Header styles */
+
+#city-picture {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  text-shadow: 2px 2px linen;
+  position: relative;
+}
+
+#city-copy {
+  background-color: #3D405B;
+  text-shadow: none;
+  color: white;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Make the image fully responsive
  .carousel-inner img {
     width: 100%;
     height: 100%;
@@ -133,4 +255,4 @@ $purple-2 : #6434A2;
 display: flex; 
 justify-content: center;
  align-items: center;  
-}
+} */

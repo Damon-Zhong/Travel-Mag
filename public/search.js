@@ -15,6 +15,8 @@ async function searchCities(event){
                     window.location.replace(`/cities.html#${city.id}`);
                 } else if(data.length > 1) {
                     $('#cityChoiceModal').modal();
+                    document.getElementById("modal-body").innerHTML =
+                    `<p>We've found multiple cities that match your query, please choose:</p>`
                     data.forEach(city => {
                         document.getElementById("modal-body").innerHTML +=
                         `<p><a href="/cities.html#${city.id}" alt="Details on ${city.city_name}">${city.city_name}</a></p>`

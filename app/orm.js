@@ -16,6 +16,16 @@ var orm = {
         
     },
 
+    getCityList: function(){
+        var queryString = "SELECT id, city_name FROM cities";
+        return new Promise((resolve, reject) => {
+            connection.query(queryString, (err, res) => {
+                if (err) throw err;
+                resolve(res);
+            });
+        });
+    },
+
     searchForCity: function (cityQuery) {
         var userInput = cityQuery.toLowerCase();
         var queryString = `SELECT * FROM cities WHERE LOWER(city_name) LIKE "%${userInput}%"`;
