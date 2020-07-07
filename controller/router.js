@@ -46,8 +46,8 @@ function router( app ){
     //[POST] submit city info
     app.post("/api/addcity", async function( req, res ){
         console.log(`[POST] data received:${req.body}`)
-        await orm.insertCityData( req.body.cityName, req.body.countryName, req.body.fields, req.body.headline, req.body.link )
-
+        await orm.insertCityData( req.body )
+        
         res.redirect("/")
     })
 

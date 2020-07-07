@@ -13,14 +13,12 @@ class City {
         const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=c6f6f0d5ef4d5464dfe745e65c596599`;
         //Retrieve data from api
         const result = await axios.get(api)
-        // console.log( result )
         return result.data
     }
 
     getCityPic = async (cityName) => {
         const query = cityName
         const result = await API.search(query, 10, 1)
-        console.log('result', result)
         if (result) {
             // return the first photo obj
             return result.photos[0]
