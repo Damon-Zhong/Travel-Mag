@@ -148,13 +148,16 @@
             <label>Departure Date</label>
             <input id="departdate" type="date" class="form-control select-date">
           </div>
-
           <div class="input-grp">
             <label>Return Date</label>
             <input id="returndate" type="date" class="form-control select-date" style="margin-bottom: 4%;">
           </div>
           <button class="btn btn-primary" onclick="checkFlight(event)">Check it out</button>
-
+        </div>
+      </div>
+      <!-- Curator info -->
+      <div id="curator-card" class="card bg-light-blue">
+        <div id="curator">
         </div>
       </div>
     </div>
@@ -185,6 +188,7 @@
     const cityID = window.location.hash.substr(1);
     //Update page information based on city ID
     async function renderPage(cityId) {
+      document.querySelector("#curator-card").style = "display: none";
       const data = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
       console.log(`data received:`, data)
 
@@ -204,7 +208,7 @@
       </div>`
       }
       getCityHeader();
-
+      
       //update hotel info
       document.querySelector("#hotels").innerHTML = `
         <img class="card-img-top" src="/Assets/city-page/hotel${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
@@ -268,6 +272,19 @@
           <a href=${data.family_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
         </div>
       `
+
+      //update curator
+      if(data.curator_name){
+        document.querySelector("#curator-card").style = "display: block";
+        document.querySelector("#curator").innerHTML = `
+        <img class="card-img-top" src="/Assets/city-page/curator.jpg" alt="Card image">
+        <div class="card-body text-center">
+          <h5 class="card-title">Curator for this city: ${data.curator_name}</h5>
+          <p class="card-text">${data.curator_bio}</p>
+        </div>
+      `
+      }
+
       displayWeather(data.city_name)
     }
 
