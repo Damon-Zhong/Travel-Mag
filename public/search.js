@@ -1,7 +1,7 @@
-// Assemble list of cities
-var cityList = [];
-// Execute function to populate array
 async function getCityList() {
+    // Assemble list of cities
+    var cityList = [];
+    // Execute function to populate array
     cityList = await fetch(`/api/cities/list`).then(result => result.json());
     // Iterate over all cities
     if (window.location.pathname == '/') {
@@ -205,7 +205,7 @@ async function checkFlight(event) {
         document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">
                 <h5>Lowest Flight Price</h5>
-                <p>Travelling from ${homecity} to ${destinationCity}</p>
+                <p>Travelling from ${homecity},${homeCountry} to ${destinationCity}, ${destinationCountry}</p>
                 <p>Departure at: ${departDate}</p>
                 <p>Returen at: ${returnDate}</p>
                 <p>Lowest Price: $ ${flightPrice.MinPrice} </p>
