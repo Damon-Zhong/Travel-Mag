@@ -12,7 +12,7 @@ async function searchCities(event){
             response.json().then(function(data) {
                 if(data.length == 1){
                     var city = data[0];
-                    window.location.replace(`/cities.html#${city.id}`);
+                    window.location.href = `/cities.html#${city.id}`;
                 } else if(data.length > 1) {
                     $('#cityChoiceModal').modal();
                     document.getElementById("modal-body").innerHTML =

@@ -17,7 +17,7 @@
   <title>Travel Mag</title>
 </head>
 
-<body>
+<body onhashchange="renderPage(window.location.hash.substr(1))">
   <!-- Modal for choosing from multiple cities -->
   <div
     class="modal fade"
@@ -206,7 +206,7 @@
     const picData = await fetch(`/api/pic/${data.city_name}`).then(result => result.json())
     console.log( `Fetching from: /api/pic/${data.city_name}, result:`, picData )
     //render city header
-      document.querySelector("#city-header").innerHTML += `
+      document.querySelector("#city-header").innerHTML = `
       <div id="city-picture" style="background-image: url(${picData.src.large})">
         <div id="city-copy" class="pt-2 pb-1">
           <div class="container">
