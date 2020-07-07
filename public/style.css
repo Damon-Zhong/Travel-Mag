@@ -34,6 +34,10 @@ body {
   color: #E07A5F;
 }
 
+#dropdown a.dropdown-item {
+  color: #3D405B!important;
+}
+
 /* Index: Loading spinner styles */
 
 #spinner {

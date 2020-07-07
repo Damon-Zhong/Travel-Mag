@@ -29,14 +29,7 @@
             aria-haspopup="true" aria-expanded="false">
             Destinations
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="city1.html">Greece</a>
-            <a class="dropdown-item" href="/Cancun">Cancún</a>
-            <a class="dropdown-item" href="#">Iceland</a>
-            <a class="dropdown-item" href="#">Philippines</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">somewhere else</a>
-          </div>
+          <div id="dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="submitCity.html">Submit City</a>
@@ -126,4 +119,20 @@
     </div>
 
 </body>
+
+<script>
+  // Assemble list of cities
+  var cityList = [];
+  // Execute function to populate array
+  async function getCityList(){
+    cityList = await fetch(`/api/cities/list`).then(result => result.json());
+    // Iterate over all cities
+    cityList.forEach(city => {
+      // Write cities in dropdown
+      document.querySelector("#dropdown").innerHTML += `
+        <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
+    });
+  }
+  getCityList();
+</script>
 </html>

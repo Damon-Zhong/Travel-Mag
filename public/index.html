@@ -81,16 +81,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Destinations
+            Our destinations
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="city1.html">Greece</a>
-            <a class="dropdown-item" href="/Cancun">Cancún</a>
-            <a class="dropdown-item" href="#">Iceland</a>
-            <a class="dropdown-item" href="#">Philippines</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">somewhere else</a>
-          </div>
+          <div id="dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="submitCity.html">Submit City</a>
@@ -138,9 +131,12 @@
   async function getCityList(){
     cityList = await fetch(`/api/cities/list`).then(result => result.json());
     // Iterate over all cities
-    for( let i=1; i<cityList.length+1; i++){
-      getCityInfo(i)
-    }
+    cityList.forEach(city => {
+      getCityInfo(city.id);
+      // Write cities in dropdown
+      document.querySelector("#dropdown").innerHTML += `
+        <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
+    });
   }
   getCityList();
 
