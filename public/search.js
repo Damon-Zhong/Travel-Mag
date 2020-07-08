@@ -89,6 +89,10 @@ async function renderCityPage() {
     const data = await fetch(`/api/data?url=${cityUrl}`).then(result => result.json())
     //generate city header
     getCityHeader(data.city_name);
+    // Remove spinner
+    document.querySelector("#spinner").style = "display: none";
+    // Show cards
+    document.querySelector("#city_profile").style = "display: block";
     //update hotel info
     document.querySelector("#hotels").innerHTML = `
     <img class="card-img-top" src="/Assets/city-page/hotel${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
