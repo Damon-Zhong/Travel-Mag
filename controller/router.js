@@ -68,9 +68,9 @@ function router( app ){
         const home_AP = await CityModel.convertCityNames( req.params.home, req.params.homecountry )
         const des_AP = await CityModel.convertCityNames( req.params.destination, req.params.destinationcountry )
         if ( home_AP && des_AP) {
-            console.log( `Airport codes found` )
+            console.log( `Airport codes found: Home-${home_AP.replace("-sky", "")}, Destination-${des_AP.replace("-sky", "")}` )
             const quotes = await CityModel.getFlightQuote(home_AP, des_AP, req.params.depart, req.params.return)
-            res.status(200).send( quotes )
+            res.send( { status: true, body: quotes, skyscanner_link: `https://www.skyscanner.ca/transport/flights/${home_AP.replace("-sky", "")}/${des_AP.replace("-sky", "")}/${req.params.depart}/${req.params.return}/`} )
         }else{
             console.log( `Airport codes missing.`)
             res.send( { status: false, message: `City Not Found. Please try again.` } )
