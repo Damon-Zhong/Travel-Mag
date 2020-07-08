@@ -1,15 +1,24 @@
-// Assemble list of cities
-var cityList = [];
-// Execute function to populate array
 async function getCityList() {
+    // Assemble list of cities
+    var cityList = [];
+    // Execute function to populate array
     cityList = await fetch(`/api/cities/list`).then(result => result.json());
     // Iterate over all cities
-    cityList.forEach(city => {
-        getCityInfo(city.id);
-        // Write cities in dropdown
-        document.querySelector("#dropdown").innerHTML += `
+    if (window.location.pathname == '/') {
+        cityList.forEach(city => {
+            getCityInfo(city.id);
+            // Write cities in dropdown
+            document.querySelector("#dropdown").innerHTML += `
         <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
-    });
+        });
+    } else {
+        cityList.forEach(city => {
+            // Write cities in dropdown
+            document.querySelector("#dropdown").innerHTML += `
+              <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
+        });
+    }
+
 }
 
 async function getCityInfo(cityId) {
@@ -32,34 +41,33 @@ async function getCityInfo(cityId) {
       </div>`
 }
 
-
 async function searchCities(event) {
     event.preventDefault();
     var userInput = document.getElementById("search-box").value;
     let response = await fetch(`/api/search/?q=${userInput}`)
         .then(
-            function(response) {
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                response.status);
-                return;
-            }
-            response.json().then(function(data) {
-                if(data.length == 1){
-                    var city = data[0];
-                    window.location.href = `/cities.html#${city.id}`;
-                } else if(data.length > 1) {
-                    $('#cityChoiceModal').modal();
-                    document.getElementById("modal-body").innerHTML =
-                    `<p>We've found multiple cities that match your query, please choose:</p>`
-                    data.forEach(city => {
-                        document.getElementById("modal-body").innerHTML +=
-                        `<p><a href="/cities.html#${city.id}" alt="Details on ${city.city_name}">${city.city_name}</a></p>`
-                    });
-                } else {
-                    $('#cityChoiceModal').modal();
-                    document.getElementById("modal-body").innerHTML =
-                    `<p>We couldn't find a city that matches your query in our database.
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                response.json().then(function (data) {
+                    if (data.length == 1) {
+                        var city = data[0];
+                        window.location.href = `/cities.html#${city.id}`;
+                    } else if (data.length > 1) {
+                        $('#cityChoiceModal').modal();
+                        document.getElementById("modal-body").innerHTML =
+                            `<p>We've found multiple cities that match your query, please choose:</p>`
+                        data.forEach(city => {
+                            document.getElementById("modal-body").innerHTML +=
+                                `<p><a href="/cities.html#${city.id}" alt="Details on ${city.city_name}">${city.city_name}</a></p>`
+                        });
+                    } else {
+                        $('#cityChoiceModal').modal();
+                        document.getElementById("modal-body").innerHTML =
+                            `<p>We couldn't find a city that matches your query in our database.
                     <br><br>
                     Do you or someone you know want to add the city? Go <a href="/submitCity.html" 
                     alt="Add city">here</a> to enter the city's details.<p>`
@@ -72,6 +80,147 @@ async function searchCities(event) {
         });
 }
 
-async function renderCityPage(){
-    
+async function renderCityPage(cityId) {
+    //Retrieve data from database based on city ID
+    const data = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
+    //generate city header
+    getCityHeader(data.city_name);
+    //update hotel info
+    document.querySelector("#hotels").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/hotel${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center">
+      <h5 class="card-title">Best Hotels</h5>
+      <p class="card-text">${data.hotels_headline} </p>
+      <a href=${data.hotels_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
+    </div>
+  `
+    //update restaurant info
+    document.querySelector("#restaurants").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/restaurant${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center">
+      <h5 class="card-title">Top Places to Eat</h5>
+      <p class="card-text">${data.eats_headline} </p>
+      <a href=${data.eats_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
+    </div>
+  `
+    //update free section
+    document.querySelector("#free").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/fun${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center">
+      <h5 class="card-title">Try These for FREE!</h5>
+      <p class="card-text">${data.free_headline} </p>
+      <a href=${data.free_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
+    </div>
+  `
+    //update night life
+    document.querySelector("#nightlife").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/club${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center">
+      <h5 class="card-title">Best Bars for Nightlife</h5>
+      <p class="card-text">${data.nightlife_headline} </p>
+      <a href=${data.nightlife_link} target="_blank" class="btn btn-primary btn-block">Check it out!</a>
+    </div>
+  `
+    //update sights
+    document.querySelector("#sights").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/sight${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center"> 
+      <h5 class="card-title">Exciting Sights</h5>
+      <p class="card-text">${data.sights_headline}</p>
+      <a href=${data.sights_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
+    </div>
+  `
+    //update Bars
+    document.querySelector("#bars").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/bar${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center">
+      <h5 class="card-title">Best Bars</h5>
+      <p class="card-text">${data.bars_headline}</p>
+      <a href=${data.bars_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
+    </div>
+  `
+    //update Family acitivities
+    document.querySelector("#family").innerHTML = `
+    <img class="card-img-top" src="/Assets/city-page/family${Math.ceil(Math.random() * 3)}.jpg" alt="Card image">
+    <div class="card-body text-center">
+      <h5 class="card-title">Fun Family Activities</h5>
+      <p class="card-text">${data.family_headline}</p>
+      <a href=${data.family_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
+    </div>
+  `
+    displayWeather(data.city_name)
 }
+
+async function getCityHeader(cityName) {
+    //Pick a city view picture from Pexel
+    const picData = await fetch(`/api/pic/${cityName}`).then(result => result.json())
+    console.log(`Fetching from: /api/pic/${cityName}, result:`, picData)
+    //render city header
+    document.querySelector("#city-header").innerHTML = `
+      <div id="city-picture" style="background-image: url(${picData.src.large})">
+        <div id="city-copy" class="pt-2 pb-1">
+          <div class="container">
+            <h1 id="city_name">Welcome to ${cityName}!</h1>
+            <p id="city_intro">Here's a curated selection of everything the city has to offer.</p>
+          </div>
+        </div>
+      </div>`
+}
+
+async function displayWeather(cityName) {
+    //Fetch data from Open Weather API
+    const weatherInfo = await fetch(`/api/weather/${cityName}`).then((result) => result.json())
+    // console.log(weatherInfo)
+    document.querySelector('#weatherClass').innerHTML =
+        `<h5 class="card-title">Weather in ${weatherInfo.name}
+      <img src="http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png" width="50" height="50" alt="">
+    </h5>
+      <p class="card-text">Temperature: ${Math.round(weatherInfo.main.temp)} °C</p>
+      <p class="card-text">Humidity: ${weatherInfo.main.humidity}%</p>
+      <p class="card-text">Wind Speed: ${weatherInfo.wind.speed} km/h</p>`
+}
+
+async function checkFlight(event) {
+    event.preventDefault()
+    //retrieve user input
+    const homecity = document.querySelector("#homeCity").value
+    const homeCountry = document.querySelector("#homeCountry").value
+    const destinationCity = document.querySelector('#destinationCity').value
+    const destinationCountry = document.querySelector('#destinationCountry').value
+    const departDate = document.querySelector("#departdate").value
+    const returnDate = document.querySelector("#returndate").value
+    console.log(`homecity:${homecity}, destinationCity: ${destinationCity} depart:${departDate}, return:${returnDate}`)
+    //fetch data from API 
+    const flightPrice = await fetch(`/api/flightquote/${homecity}/${homeCountry}/${destinationCity}/${destinationCountry}/${departDate}/${returnDate}`).then( response => response.json() )
+    console.log(flightPrice.status)
+    //hide the input section and show price section
+    if ( flightPrice == false ) {
+        console.log(`No flights available.`)
+        document.querySelector("#flightIDInfor").innerHTML = `
+            <div id="flightPrice">         
+                <p>Important: This destination may have COVID-19 travel restrictions in place, including specific restrictions for lodging. Check any national, local, and health advisories for this destination before you book.</p>
+                <p>We've searched more than 400 airlines, couldn't find any flights</p>
+                <button type="submit" class="btn btn-info" onClick="window.location.reload()">&#128549; Try it again?</button>
+            </div>`
+
+    } else if( flightPrice.status == false ){
+        console.log(`City name not found.`)
+        document.querySelector("#flightIDInfor").innerHTML = `
+            <div id="flightPrice">         
+                <p>${flightPrice.message}</p>
+                <button type="submit" class="btn btn-info" onClick="window.location.reload()">&#128549; Try it again?</button>
+            </div>`
+
+    }else{
+        console.log(`Flights available.`)
+        document.querySelector("#flightIDInfor").innerHTML = `
+            <div id="flightPrice">
+                <h5>Lowest Flight Price</h5>
+                <p>Travelling from ${homecity},${homeCountry} to ${destinationCity}, ${destinationCountry}</p>
+                <p>Departure at: ${departDate}</p>
+                <p>Returen at: ${returnDate}</p>
+                <p>Lowest Price: $ ${flightPrice.MinPrice} </p>
+            </div>`
+    }
+}
+

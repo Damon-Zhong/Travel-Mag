@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="backgroundWhole">
+<body onload="getCityList()" class="backgroundWhole">
        
 <!-- Modal for choosing from multiple cities -->
   <div
@@ -163,19 +163,4 @@
 
 </body>
 
-<script>
-  // Assemble list of cities
-  var cityList = [];
-  // Execute function to populate array
-  async function getCityList(){
-    cityList = await fetch(`/api/cities/list`).then(result => result.json());
-    // Iterate over all cities
-    cityList.forEach(city => {
-      // Write cities in dropdown
-      document.querySelector("#dropdown").innerHTML += `
-        <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
-    });
-  }
-  getCityList();
-</script>
 </html>

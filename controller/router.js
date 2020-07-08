@@ -1,7 +1,5 @@
 const orm = require("../app/orm");
-const express = require("express");
 const City = require("../model/city");
-const { response } = require("express");
 const CityModel = new City();
 require('dotenv').config();
 var path = require("path");
@@ -42,7 +40,7 @@ function router( app ){
         res.send( result )
     })
 
-    //[GET] search by city name or click on city
+    //[GET] get city weather information
     app.get("/api/weather/:cityname", async function( req, res ){
         const city_name = req.params.cityname
         const weather = await CityModel.getWeather( city_name )
@@ -63,6 +61,21 @@ function router( app ){
         const data = await CityModel.getCity(cityId);
         res.send(data);
     });
+
+    // [GET] flight quotes
+    app.get("/api/flightquote/:home/:homecountry/:destination/:destinationcountry/:depart/:return", async function( req, res ){
+        console.log(`Home city:${req.params.home} To Destination city:${req.params.destination}; Depart at:${req.params.depart}; Return at:${req.params.return}`)
+        const home_AP = await CityModel.convertCityNames( req.params.home, req.params.homecountry )
+        const des_AP = await CityModel.convertCityNames( req.params.destination, req.params.destinationcountry )
+        if ( home_AP && des_AP) {
+            console.log( `Airport codes found` )
+            const quotes = await CityModel.getFlightQuote(home_AP, des_AP, req.params.depart, req.params.return)
+            res.status(200).send( quotes )
+        }else{
+            console.log( `Airport codes missing.`)
+            res.send( { status: false, message: `City Not Found. Please try again.` } )
+        }
+    })
 }
 
 module.exports = router
