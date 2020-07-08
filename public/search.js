@@ -6,24 +6,23 @@ async function getCityList() {
     // Iterate over all cities
     if (window.location.pathname == '/') {
         cityList.forEach(city => {
-            getCityInfo(city.id);
+            getCityInfo(city.url);
             // Write cities in dropdown
             document.querySelector("#dropdown").innerHTML += `
-        <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
+        <a class="dropdown-item" href="/destinations/${city.url}">${city.city_name}</a>`
         });
     } else {
         cityList.forEach(city => {
             // Write cities in dropdown
             document.querySelector("#dropdown").innerHTML += `
-              <a class="dropdown-item" href="/cities.html#${city.id}">${city.city_name}</a>`
+              <a class="dropdown-item" href="/destinations/${city.url}">${city.city_name}</a>`
         });
     }
-
 }
 
-async function getCityInfo(cityId) {
+async function getCityInfo(cityUrl) {
     //Retrieve city data from database
-    const result = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
+    const result = await fetch(`/api/data?url=${cityUrl}`).then(result => result.json())
     //Pick a city view picture from Pexel
     const picData = await fetch(`/api/pic/${result.city_name}`).then(result => result.json())
     // Hide loading spinner
@@ -35,7 +34,7 @@ async function getCityInfo(cityId) {
           <h5 class="card-title pt-2 pl-3">${result.city_name}, ${result.city_country}</h5>
           <div style="background-image: url(${picData.src.medium})" class="card-image" alt="${result.city_name}"></div>
           <div class="card-body">
-            <a href="/cities.html#${cityId}" class="btn btn-primary btn-block">Let's go</a>
+            <a href="/destinations/${cityUrl}" class="btn btn-primary btn-block">Let's go</a>
           </div>
         </div>
       </div>`
@@ -55,14 +54,14 @@ async function searchCities(event) {
                 response.json().then(function (data) {
                     if (data.length == 1) {
                         var city = data[0];
-                        window.location.href = `/cities.html#${city.id}`;
+                        window.location.href = `/destinations/${city.url}`;
                     } else if (data.length > 1) {
                         $('#cityChoiceModal').modal();
                         document.getElementById("modal-body").innerHTML =
                             `<p>We've found multiple cities that match your query, please choose:</p>`
                         data.forEach(city => {
                             document.getElementById("modal-body").innerHTML +=
-                                `<p><a href="/cities.html#${city.id}" alt="Details on ${city.city_name}">${city.city_name}</a></p>`
+                                `<p><a href="/destinations/${city.url}" alt="Details on ${city.city_name}">${city.city_name}</a></p>`
                         });
                     } else {
                         $('#cityChoiceModal').modal();
@@ -80,9 +79,14 @@ async function searchCities(event) {
         });
 }
 
-async function renderCityPage(cityId) {
+async function renderCityPage() {
+    // Render destination dropdown
+    getCityList();
+    // Get city name from url path
+    var pathArray = window.location.pathname.split('/');
+    var cityUrl = pathArray[2];
     //Retrieve data from database based on city ID
-    const data = await fetch(`/api/data?id=${cityId}`).then(result => result.json())
+    const data = await fetch(`/api/data?url=${cityUrl}`).then(result => result.json())
     //generate city header
     getCityHeader(data.city_name);
     //update hotel info
@@ -199,7 +203,7 @@ async function checkFlight(event) {
         document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">         
                 <p>Important: This destination may have COVID-19 travel restrictions in place, including specific restrictions for lodging. Check any national, local, and health advisories for this destination before you book.</p>
-                <p>We've searched more than 400 airlines, couldn't find any flights</p>
+                <p>We've searched more than 400 airlines, but couldn't find any flights.</p>
                 <button type="submit" class="btn btn-info" onClick="window.location.reload()">&#128549; Try it again?</button>
             </div>`
 
@@ -218,7 +222,7 @@ async function checkFlight(event) {
                 <h5>Lowest Flight Price</h5>
                 <p>Travelling from ${homecity},${homeCountry} to ${destinationCity}, ${destinationCountry}</p>
                 <p>Departure at: ${departDate}</p>
-                <p>Returen at: ${returnDate}</p>
+                <p>Return at: ${returnDate}</p>
                 <p>Lowest Price: $ ${flightPrice.MinPrice} </p>
             </div>`
     }

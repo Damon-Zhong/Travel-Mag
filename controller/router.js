@@ -46,19 +46,19 @@ function router( app ){
         const weather = await CityModel.getWeather( city_name )
 
         res.send( weather )
-    })
+    });
  
     //[POST] submit city info
     app.post("/api/addcity", async function( req, res ){
         console.log(`[POST] data received:${req.body}`)
         await orm.insertCityData( req.body )
         res.redirect("/")
-    })
+    });
 
     // [GET] render city content from database
     app.get("/api/data", async function(req, res){
-        const cityId = req.query.id;
-        const data = await CityModel.getCity(cityId);
+        const cityUrl = req.query.url;
+        const data = await CityModel.getCity(cityUrl);
         res.send(data);
     });
 

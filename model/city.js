@@ -4,8 +4,8 @@ const PexelsAPI = require('pexels-api-wrapper');
 const API = new PexelsAPI(process.env.PEXEL_API_KEY)
 
 class City {
-    getCity = async (city_id) => {
-        const city = await orm.selectCityData(city_id);
+    getCity = async (url) => {
+        const city = await orm.selectCityData(url);
         return city;
     }
 
