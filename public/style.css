@@ -130,6 +130,10 @@ body {
   display: none;
 }
 
+#flightIDInfor label {
+  display: block;
+}
+
 /* Submit city: Form styles */
 
 .red {
