@@ -111,7 +111,7 @@ To get started with the application, simply clone the project and run "npm insta
   ## The team behind TravelMag
   - Marcel ([Github](http://github.com/cestmarcel) & [Website](https://marcelthiemann.com))
   - Etam ([Github](https://github.com/etammao)) 
-  - Damon ([Github](https://github.com/Damon-Zhong) & [Website] (https://damon-zhong.github.io/Responsiveness-Portfolio/))
+  - Damon ([Github](https://github.com/Damon-Zhong) & [Website](https://damon-zhong.github.io/Responsiveness-Portfolio/))
   - Sadia ([Github](https://github.com/sadia110)) 
 
  [Back To The Top](#table-of-contents)
