@@ -131,3 +131,14 @@ body {
 .red {
   color: #E07A5F;
 }
+
+.flightInput{
+  width: 85%;
+  font-size: 70%;
+}
+
+.select-date {
+  
+  font-size: 70%;
+  
+}
