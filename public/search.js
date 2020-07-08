@@ -152,6 +152,18 @@ async function renderCityPage() {
       <a href=${data.family_link} target="_blank" class="btn btn-primary btn-block">Learn more</a>
     </div>
   `
+    //update curator
+    if(data.curator_name){
+        document.querySelector("#curator-card").style = "display: block";
+        document.querySelector("#curator").innerHTML = `
+        <img class="card-img-top" src="/Assets/city-page/curator.jpg" alt="Card image">
+        <div class="card-body text-center">
+          <h5 class="card-title">Curator for this city: ${data.curator_name}</h5>
+          <p class="card-text">${data.curator_bio}</p>
+        </div>
+      `
+      }
+    
     displayWeather(data.city_name)
 }
 
