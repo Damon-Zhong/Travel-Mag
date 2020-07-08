@@ -208,7 +208,7 @@ async function checkFlight(event) {
     console.log(`homecity:${homecity}, destinationCity: ${destinationCity} depart:${departDate}, return:${returnDate}`)
     //fetch data from API 
     const flightPrice = await fetch(`/api/flightquote/${homecity}/${homeCountry}/${destinationCity}/${destinationCountry}/${departDate}/${returnDate}`).then( response => response.json() )
-    console.log(flightPrice.status)
+    
     //hide the input section and show price section
     if ( flightPrice == false ) {
         console.log(`No flights available.`)
@@ -235,7 +235,8 @@ async function checkFlight(event) {
                 <p>Travelling from ${homecity},${homeCountry} to ${destinationCity}, ${destinationCountry}</p>
                 <p>Departure at: ${departDate}</p>
                 <p>Return at: ${returnDate}</p>
-                <p>Lowest Price: $ ${flightPrice.MinPrice} </p>
+                <p>Lowest Price: $ ${flightPrice.body.MinPrice} </p>
+                <a class="btn btn-info" href=${flightPrice.skyscanner_link} target="_blank">Check it out on Skyscanner</a>
             </div>`
     }
 }
