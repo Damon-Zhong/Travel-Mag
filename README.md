@@ -47,7 +47,7 @@
 [Back To The Top](#table-of-contents)
 
   ---  
-## Future Road Map  
+## Future development roadmap  
 <p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>      
 
 - Functionality around approval process for submissions
@@ -87,7 +87,7 @@
 
 ### How to run the application 
 
--  Npm run start. The application will start running on port _____.
+To get started with the application, simply clone the project and run "npm install" on your command line after navigating to your repository. There is a seed file in the repository for your convenience and to pre-populate the database with some values for testing. Once you're all set, all you have to do is run "node server.js" and you can work with the application.
  
   [Back To The Top](#table-of-contents)
 
