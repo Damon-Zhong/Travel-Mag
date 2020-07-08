@@ -12,9 +12,9 @@
   ### Table of Contents
  - [Description](#description)
  - [Technologies](#technologies)
- - [Future Road Map](#future-road-map)
+ - [Future development roadmap](#future-development-roadmap)
  - [License](#license)
- - [coMeDia Team](#coMeDia-Team)
+ - [The team behind TravelMag](#the-team-behind-travelmag)
 
   ---
 
@@ -110,8 +110,8 @@ To get started with the application, simply clone the project and run "npm insta
  
   ## The team behind TravelMag
   - Marcel ([Github](http://github.com/cestmarcel) & [Website](https://marcelthiemann.com))
-  - Etam ([Github](https://github.com/etammao))
-  - Damon ([Github](https://github.com/Damon-Zhong))
+  - Etam ([Github](https://github.com/etammao)) 
+  - Damon ([Github](https://github.com/Damon-Zhong) & [Website](https://damon-zhong.github.io/Responsiveness-Portfolio/))
   - Sadia ([Github](https://github.com/sadia110)) 
 
  [Back To The Top](#table-of-contents)
