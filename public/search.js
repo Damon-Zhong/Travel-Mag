@@ -68,7 +68,7 @@ async function searchCities(event) {
                         document.getElementById("modal-body").innerHTML =
                             `<p>We couldn't find a city that matches your query in our database.
                     <br><br>
-                    Do you or someone you know want to add the city? Go <a href="/submitCity.html" 
+                    Do you or someone you know want to add the city? Go <a href="/submit" 
                     alt="Add city">here</a> to enter the city's details.<p>`
                     }
                 });
