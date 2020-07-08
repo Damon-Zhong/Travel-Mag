@@ -2,7 +2,7 @@
 
   # TravelMag – your digital travel magazine
 
-![TravelMag landing page](https://github.com/Damon-Zhong/Travel-Mag/blob/master/public/Assets/screenshots/travelmag-landing.png)
+![TravelMag landing page](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/travelmag-landing.png)
  
 
   > Landing Page of TravelMag
@@ -28,21 +28,21 @@
 #### Landing page
  <p> On the landing page, users can choose from the available cities that are in the database to explore. They can also, from any area of the page, choose from the dropdown menu in the navbar to select a specific city.</p> 
 
-  ![Cities overview](https://github.com/Damon-Zhong/Travel-Mag/blob/master/public/Assets/screenshots/cities.png)
+  ![Cities overview](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/cities.png)
 
 #### City page
  <p> On the city overview page, all the content is structures with tiles. Each topic has its own tile.</p> 
 
- ![City page](https://github.com/Damon-Zhong/Travel-Mag/blob/master/public/Assets/screenshots/city-page.png)
+ ![City page](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/city-page.png)
  
  <p>Aside from tiles featuring articles, there are also tiles for weather, flights, and the curator of the page (only if they have submitted their personal info).</p> 
 
-  ![Tile overview](https://github.com/Damon-Zhong/Travel-Mag/blob/master/public/Assets/screenshots/api-tiles.png)
+  ![Tile overview](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/api-tiles.png)
 
 #### Submit page
  <p> The submit page is here so that people can submit a city that they know very well to the database. They'll have to enter information and links about all the topics that are part of TravelMag and can optionally also include their information (to tell other users what makes them an expert on the city).</p> 
 
-  ![Submit page](https://github.com/Damon-Zhong/Travel-Mag/blob/master/public/Assets/screenshots/submit.png)
+  ![Submit page](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/submit.png)
 
 [Back To The Top](#table-of-contents)
 
