@@ -4,6 +4,8 @@ const City = require("../model/city");
 const { response } = require("express");
 const CityModel = new City();
 require('dotenv').config();
+var path = require("path");
+var fs = require('fs');
 
 function router( app ){
     // GET all cities
@@ -18,6 +20,14 @@ function router( app ){
         const city_info = await orm.selectCityData(city_id)
         res.send( city_info )
     })
+
+    // GET pretty urls
+    app.get("/destinations/:name", async function( req, res ){
+        const name = req.params.name;
+        const city_id = await orm.getCityIdByName(name);
+        res.sendFile(path.join(__dirname, '..', '/public/cities.html'));
+    })
+
     //[GET] city profile picture from Pexel API
     app.get("/api/pic/:cityname", async function( req, res ){
         const city_name = req.params.cityname

@@ -43,6 +43,16 @@ var orm = {
                 resolve(res);
             });
         });
+    },
+
+    getCityIdByName: function(url) {
+        var queryString = `SELECT id FROM cities WHERE url = ?`;
+        return new Promise((resolve, reject) => {
+            connection.query(queryString, [url], (err, res) => {
+                if (err) throw err;
+                resolve(res[0]);
+            });
+        });
     }
 }
 

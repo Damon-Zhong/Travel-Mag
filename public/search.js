@@ -12,7 +12,6 @@ async function getCityList() {
     });
 }
 
-
 async function getCityInfo(cityId) {
     //Retrieve city data from database
     const result = await fetch(`/api/data?id=${cityId}`).then(result => result.json())

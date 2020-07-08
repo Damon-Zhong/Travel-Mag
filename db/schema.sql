@@ -20,6 +20,7 @@ CREATE TABLE cities (
     nightlife_headline varchar(255),
     family_link varchar(255),
     family_headline varchar(255),
+    url varchar(255),
     curator_name varchar(255),
     curator_bio varchar(255),
     PRIMARY KEY (id)
