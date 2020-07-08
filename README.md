@@ -1,10 +1,11 @@
 
 
-  # MyCity  ( coMeDia)
+  # TravelMag 
 
-  ![Project Image] 
+  ![image](https://user-images.githubusercontent.com/64391826/86931780-82fffb00-c106-11ea-9dcd-ed251ae9963c.png)
+ 
 
-  > Landing Page of MyCity
+  > Landing Page of TravelMag
 
  ---
 
@@ -13,30 +14,31 @@
  - [Technologies](#technologies)
  - [Future Road Map](#future-road-map)
  - [License](#license)
- - [Our Team](#our-team)
+ - [coMeDia Team](#coMeDia-Team)
 
   ---
 
   ## Description
 
   
- <p> MyCity is app where the user get access to all the top destinations in a city. From top Hotels, to the best restaurants and bars in town to even ideas on what activities you can enjoy with the kids. With our app we bring the user series of articles that list out the most famous and best of each category. The user can easily plan their itinerary for trip with not only access to places to visit but also flight prices, weather and hotels  </p>  
+ <p> TravelMag is app where the user get access to all the top destinations in a city. From top Hotels, to the best restaurants and bars in town to even ideas on what activities you can enjoy with the kids. With our app we bring the user series of articles that list out the most famous and best of each category. The user can easily plan their itinerary for trip with not only access to places to visit but also flight prices, weather and hotels  </p>  
 
 
 [Back To The Top](#table-of-contents)
 
   ---  
 ## Future Road Map  
-<p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>    
- 
+<p>In the foreseeable feature our Team has many ideas that can make this app more user friendly. The application that are to be added in the future are:</p>      
 
-- More options for cities   
+- Functionality around approval process for submissions
+- Function of updating city profile that allows curator to edit city profile
 - Prices for Hotels with direct links for booking 
-- Itinerary where user can plan their trips in detail and have save for future  
-- Comment section where other user can share experience and ask questions  
-- Add additional  topics and sub categories   
-- Support for small / locally owned business 
- 
+- Flight widget with link to external overview page
+- Itinerary where user can plan their trip in detail  (save for later and share with others)
+- Add more additional topics and sub categories 
+- Support for small /locally owned business  
+- Have the user take a mini quiz to produce filtered search results 
+
 
 [Back To The Top](#table-of-contents)
 
@@ -50,15 +52,13 @@
 - HTML/CSS 
 - JavaScript 
 - Node 
-- MySQL database    
+- MySQL Database     
 
 
 ### API
-
- - Pictures: 
- - Weather: 
- - Flights: 
- - Cities: 
+- Weather 
+- Skyscanner 
+- Pexel 
 
 
 ### Hosting Platforms 
@@ -74,7 +74,7 @@
   ----
 
  
-  ## Our Team  at coMeDia   
+  ## coMeDia Team
   - Marcel 
   - Etam 
   - Damon  
