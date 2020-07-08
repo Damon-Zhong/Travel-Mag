@@ -235,7 +235,7 @@ async function checkFlight(event) {
                 <p>Travelling from ${homecity},${homeCountry} to ${destinationCity}, ${destinationCountry}</p>
                 <p>Departure at: ${departDate}</p>
                 <p>Return at: ${returnDate}</p>
-                <p>Lowest Price: $ ${flightPrice.body.MinPrice} </p>
+                <p>Lowest Price (one-way): $${flightPrice.body.MinPrice} </p>
                 <a class="btn btn-info" href=${flightPrice.skyscanner_link} target="_blank">Check it out on Skyscanner</a>
             </div>`
     }

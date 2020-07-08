@@ -2,7 +2,7 @@
 
   # TravelMag – your digital travel magazine
 
-![TravelMag landing page](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/travelmag-landing.png)
+![TravelMag landing page](https://github.com/Damon-Zhong/Travel-Mag/blob/develop/public/Assets/screenshots/travelmag-mockup.jpg)
  
 
   > Landing Page of TravelMag
