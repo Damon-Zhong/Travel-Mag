@@ -12,9 +12,9 @@
   ### Table of Contents
  - [Description](#description)
  - [Technologies](#technologies)
- - [Future Road Map](#future-road-map)
+ - [Future development roadmap](#future-development-roadmap)
  - [License](#license)
- - [coMeDia Team](#coMeDia-Team)
+ - [The team behind TravelMag](#the-team-behind-travelmag)
 
   ---
 
