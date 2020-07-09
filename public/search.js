@@ -214,7 +214,7 @@ async function checkFlight(event) {
     const flightPrice = await fetch(`/api/flightquote/${homecity}/${homeCountry}/${destinationCity}/${destinationCountry}/${departDate}/${returnDate}`).then( response => response.json() )
     
     //hide the input section and show price section
-    if ( flightPrice == false ) {
+    if ( flightPrice == false || flightPrice.body == '' ) {
         console.log(`No flights available.`)
         document.querySelector("#flightIDInfor").innerHTML = `
             <div id="flightPrice">         

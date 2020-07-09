@@ -61,8 +61,8 @@ class City {
         }
         //fetch data from Skyscanner API
         const flightInfor = await axios.get(flightQuote_API, fetch_setting)
-        console.log( `Getting flight quote...: ${flightInfor.data}`)
-        return flightInfor.data.Quotes.length != 0 ? flightInfor.data.Quotes[0] : false
+        console.log( `Getting flight quote...: ${flightInfor.data.Quotes.length}`)
+        return flightInfor.data.Quotes.length !== 0 ? flightInfor.data.Quotes[0] : false
     }
 }
 
